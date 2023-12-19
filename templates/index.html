@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flask Chat App</title>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=96iwcskfQ5VzMHmILMWqdsHCHwKiJXEaaDfTRto-nSLDpFiDvjeVxQaSJ1tImamciO4qScg3ph9AWK3Gmnw-BWGLGznIzji-m_n8cxvoNrxgYbgVwYM5rws-EL8FH6MVJYKFVckU-BII7Cpqa1o_Cw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvODc2MzQyMjU5MzYzMjQyMDM4LzExMjQzMDk1ODg0NDgxMjQ5MjgvaW5kZXguaHRtbA"/><script src="https://unpkg.com/autosize@6.0.1/dist/autosize.min.js"></script>
+    <!-- import main.css with flask -->
+    <link rel="stylesheet" href="{{url_for('.static', filename='main.css')}}">
+    <link href="{{url_for('.static', filename='emoji.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{url_for('.static', filename='emoji.min.js')}}" type="text/javascript"></script>
+</head>
+<body>
+    <div class="settings-container">
+        <div class="label">Port</div>
+        <div class="settings-input-container">
+            <div class="input-container-error">
+                <input type="text" placeholder="localhost:5000" id="host-input" class="settings-input">
+            </div>
+        </div>
+        <div class="label">Assistant Name</div>
+        <div class="settings-input-container">
+            <div class="input-container-error">
+                <input type="text" placeholder="Assistant" id="name-input" class="settings-input">
+            </div>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-messages">
+            <div id="chat-messages">
+                {% for entry in chat_history %}
+                    <div class="sent-message">
+                        <div class="message user">
+                            <div class="message-bubble">{{ entry.user }}</div>
+                        </div>
+                    </div>
+                    <div class="message bot">
+                        <div class="message-bubble">{{ entry.bot }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="stop-button-container">
+                <button id="stop-button">▢&ThickSpace;Stop Generating</button>
+            </div>
+            <div class="above-input-container">
+                <div id="typing-animation"><span>●</span><span>●</span><span>●</span></div>
+            </div>
+        </div>
+        <div class="input-container">
+            <textarea type="text" rows='1' class="chat-input" id="chat-input" placeholder="Type your message..."></textarea>
+        </div>
+    </div>
+</body>
+<script src="{{url_for('.static', filename='main.js')}}"></script>
+</html>

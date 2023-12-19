@@ -1,0 +1,8 @@
+THOUGHTS:
+As an AI language model, my main function is to process natural language input and generate human-like responses. I have been trained on vast amounts of text data from all over the internet, which allows me to understand and respond to a wide range of topics and questions. My purpose assist users by providing accurate and helpful information and answers.
+PLAN:
+My plan for this task is to perform a web search on the topic "AI" using the "Search(search term)" command. I will then summarize the information I find and write it to a file "Save_TXT()" command.
+NEXT TASK:
+The next task would be to analyze the information I have gathered and generate a summary report on the current state of AI technology and its applications.
+COMMANDS:
+None.

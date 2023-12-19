@@ -1,0 +1,6 @@
+NEXT TASK: None.
+COMMANDS: Save_TXT("Summary Understanding Search Terms")
+AI:
+Thoughts: The search results provide a clear definition of a search term and its differences with a keyword. The search term refers to the actual words or phrases entered by users into a search engine, while a keyword represents the main topics or themes of a website. The summary highlights the importance of understanding search terms for optimizing website content and improving online visibility.
+Plan: I will write a concise summary of the key points from the search results and present it to the user.
+NEXT TASK: None.

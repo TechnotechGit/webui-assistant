@@ -1,0 +1,406 @@
+2023-04-10 00:33:33,276 [MainThread  ] [INFO] Requesting URL: https://www.google.com/
+2023-04-10 00:33:33,974 [MainThread  ] [DEBUG]     status_code: 200
+2023-04-10 00:33:33,975 [MainThread  ] [DEBUG]     headers: {'User-Agent': 'Mozilla/5.0 Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.13) Firefox/3.6.13'}
+2023-04-10 00:33:33,978 [MainThread  ] [DEBUG]     cookies: <RequestsCookieJar[<Cookie 1P_JAR=2023-04-09-14 for .google.com/>, <Cookie AEC=AUEFqZehVCRFofJn8EOZfTDSYt8LJ8GjF6zU-cxSXwyd4tIalaHehqQJcw for .google.com/>, <Cookie NID=511=oAxENMxBrXRxInb2otS7Ct3zHDkNlsgeu1URaHnGPkxiEqI1ujOxLOW4cotMZ0qosPkSIU5-_deC5WhAkKAnWuc6EtPPUEAXnkWaBRzyDgh-bjXuAK4OYv4aVZrm5fP4M_3mb_iFAbVBIUnMWZ0ZCxeNFMthDuN3wICo2__57Eo for .google.com/>]>
+2023-04-10 00:33:33,980 [MainThread  ] [DEBUG]     proxy: 
+2023-04-10 00:33:33,981 [MainThread  ] [DEBUG]     verify_ssl: True
+2023-04-10 00:33:33,982 [MainThread  ] [INFO] Stats: start=0, num=100, total_valid_links_found=0 / max_search_result_urls_to_return=100
+2023-04-10 00:33:33,982 [MainThread  ] [INFO] Requesting URL: https://www.google.com/search?hl=en&q=site%3Agithub.com&num=100&btnG=Google+Search&tbs=li:1&safe=off&cr=&filter=0
+2023-04-10 00:33:34,805 [MainThread  ] [DEBUG]     status_code: 200
+2023-04-10 00:33:34,805 [MainThread  ] [DEBUG]     headers: {'User-Agent': 'Mozilla/5.0 Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2.13) Firefox/3.6.13'}
+2023-04-10 00:33:34,806 [MainThread  ] [DEBUG]     cookies: <RequestsCookieJar[<Cookie 1P_JAR=2023-04-09-14 for .google.com/>, <Cookie NID=511=B-suHdYieiSgQNkmkB6MQ77hJWs3ty0NVmir-m-UdjAvputwvZAB03IDU4a5l1IUaoIWUkhz2Xw2BIILSzqjm4w4KQSlr9GOYB3R21Ale8gt5UsZDTe6BXBgzjbLy--GvGK7A7KFvxKWnFT8vLRxTd8Mbb2goje9iL0vaH6-uMY for .google.com/>]>
+2023-04-10 00:33:34,806 [MainThread  ] [DEBUG]     proxy: 
+2023-04-10 00:33:34,807 [MainThread  ] [DEBUG]     verify_ssl: True
+2023-04-10 00:33:34,851 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /?sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QOwgC
+2023-04-10 00:33:34,852 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /?sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QOwgC
+2023-04-10 00:33:34,852 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,852 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&tbs=li:1&num=100&safe=off&sa=G&hl=en&gbv=1&sei=v8wyZL_9FJTxkPIPnui3-Aw
+2023-04-10 00:33:34,853 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&tbs=li:1&num=100&safe=off&sa=G&hl=en&gbv=1&sei=v8wyZL_9FJTxkPIPnui3-Aw
+2023-04-10 00:33:34,853 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,854 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=bks&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUIBigB
+2023-04-10 00:33:34,854 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=bks&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUIBigB
+2023-04-10 00:33:34,854 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,854 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=nws&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUIBygC
+2023-04-10 00:33:34,855 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=nws&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUIBygC
+2023-04-10 00:33:34,855 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,855 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=shop&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICCgD
+2023-04-10 00:33:34,855 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=shop&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICCgD
+2023-04-10 00:33:34,856 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,856 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICSgE
+2023-04-10 00:33:34,856 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=isch&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICSgE
+2023-04-10 00:33:34,857 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,857 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: https://maps.google.com/maps?hl=en&q=site:github.com&num=100&safe=off&cr=&filter=0&um=1&ie=UTF-8&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICigF
+2023-04-10 00:33:34,858 [MainThread  ] [DEBUG] Excluding URL because it contains "google": https://maps.google.com/maps?hl=en&q=site:github.com&num=100&safe=off&cr=&filter=0&um=1&ie=UTF-8&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICigF
+2023-04-10 00:33:34,858 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,858 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=vid&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICygG
+2023-04-10 00:33:34,859 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&source=lnms&tbm=vid&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8Q_AUICygG
+2023-04-10 00:33:34,859 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,860 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /advanced_search
+2023-04-10 00:33:34,860 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /advanced_search
+2023-04-10 00:33:34,860 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,860 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:h&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDQ
+2023-04-10 00:33:34,861 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:h&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDQ
+2023-04-10 00:33:34,861 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,861 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:d&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDg
+2023-04-10 00:33:34,861 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:d&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDg
+2023-04-10 00:33:34,862 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,862 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:w&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDw
+2023-04-10 00:33:34,862 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:w&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIDw
+2023-04-10 00:33:34,862 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,863 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:m&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEA
+2023-04-10 00:33:34,863 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:m&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEA
+2023-04-10 00:33:34,863 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,863 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:y&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEQ
+2023-04-10 00:33:34,864 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbs=qdr:y&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEQ
+2023-04-10 00:33:34,864 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,864 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=site:github.com&num=100&safe=off&hl=en&tbas=0&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEg
+2023-04-10 00:33:34,864 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=site:github.com&num=100&safe=off&hl=en&tbas=0&source=lnt&sa=X&ved=0ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QpwUIEg
+2023-04-10 00:33:34,865 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-10 00:33:34,865 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAMQAg&usg=AOvVaw30gOqArg5lV7GrzDtBshFP
+2023-04-10 00:33:34,865 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/
+2023-04-10 00:33:34,865 [MainThread  ] [INFO] Found unique URL #1: https://github.com/
+2023-04-10 00:33:34,865 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mattermost&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECGMQAg&usg=AOvVaw0LQqYateScLce1V-MmOSZn
+2023-04-10 00:33:34,866 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mattermost
+2023-04-10 00:33:34,866 [MainThread  ] [INFO] Found unique URL #2: https://github.com/mattermost
+2023-04-10 00:33:34,866 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/jpmorganchase&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECGIQAg&usg=AOvVaw1spb-Zgr5qw97rgA63Wvhn
+2023-04-10 00:33:34,867 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/jpmorganchase
+2023-04-10 00:33:34,867 [MainThread  ] [INFO] Found unique URL #3: https://github.com/jpmorganchase
+2023-04-10 00:33:34,867 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/replicate&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECGEQAg&usg=AOvVaw1vVaHNIL2z9IQTw5OZgjQx
+2023-04-10 00:33:34,867 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/replicate
+2023-04-10 00:33:34,867 [MainThread  ] [INFO] Found unique URL #4: https://github.com/replicate
+2023-04-10 00:33:34,868 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/18F&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECGAQAg&usg=AOvVaw3TSk_kw75QG4MhuQFkQpK-
+2023-04-10 00:33:34,868 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/18F
+2023-04-10 00:33:34,868 [MainThread  ] [INFO] Found unique URL #5: https://github.com/18F
+2023-04-10 00:33:34,868 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/intlify&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECF8QAg&usg=AOvVaw1YOksc07hzL7VPlLhl8b6X
+2023-04-10 00:33:34,869 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/intlify
+2023-04-10 00:33:34,869 [MainThread  ] [INFO] Found unique URL #6: https://github.com/intlify
+2023-04-10 00:33:34,869 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/topics&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECF4QAg&usg=AOvVaw2WXKzicXr_wpBjiDAd65Xb
+2023-04-10 00:33:34,869 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/topics
+2023-04-10 00:33:34,869 [MainThread  ] [INFO] Found unique URL #7: https://github.com/topics
+2023-04-10 00:33:34,870 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/google&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFwQAg&usg=AOvVaw2a1nt2pcGCjlkMqGYhtusB
+2023-04-10 00:33:34,870 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/google
+2023-04-10 00:33:34,870 [MainThread  ] [INFO] Found unique URL #8: https://github.com/google
+2023-04-10 00:33:34,870 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/owid&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFsQAg&usg=AOvVaw2BYzJUTlTanweCRhE8PNE2
+2023-04-10 00:33:34,871 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/owid
+2023-04-10 00:33:34,871 [MainThread  ] [INFO] Found unique URL #9: https://github.com/owid
+2023-04-10 00:33:34,871 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mapbox&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECF0QAg&usg=AOvVaw0QrDgQkFhBGYBaDcCF7m3g
+2023-04-10 00:33:34,871 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mapbox
+2023-04-10 00:33:34,872 [MainThread  ] [INFO] Found unique URL #10: https://github.com/mapbox
+2023-04-10 00:33:34,873 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/wizardforcel&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFoQAg&usg=AOvVaw1Keb_bIcHwyTmI2HgeQl89
+2023-04-10 00:33:34,874 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/wizardforcel
+2023-04-10 00:33:34,874 [MainThread  ] [INFO] Found unique URL #11: https://github.com/wizardforcel
+2023-04-10 00:33:34,874 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/ghostery&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFkQAg&usg=AOvVaw3tLlp_0Vjr31I2QQgwDBvf
+2023-04-10 00:33:34,874 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/ghostery
+2023-04-10 00:33:34,874 [MainThread  ] [INFO] Found unique URL #12: https://github.com/ghostery
+2023-04-10 00:33:34,875 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/torvalds&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFcQAg&usg=AOvVaw2J2Hhwrzte59drM_mGoftE
+2023-04-10 00:33:34,875 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/torvalds
+2023-04-10 00:33:34,875 [MainThread  ] [INFO] Found unique URL #13: https://github.com/torvalds
+2023-04-10 00:33:34,876 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/knsv&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFgQAg&usg=AOvVaw0yjRrb_4e5WIPt37bpvx9U
+2023-04-10 00:33:34,876 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/knsv
+2023-04-10 00:33:34,876 [MainThread  ] [INFO] Found unique URL #14: https://github.com/knsv
+2023-04-10 00:33:34,877 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/nextcloud&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFEQAg&usg=AOvVaw2-xv2KVLKBb5f_Kr118yOb
+2023-04-10 00:33:34,877 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/nextcloud
+2023-04-10 00:33:34,877 [MainThread  ] [INFO] Found unique URL #15: https://github.com/nextcloud
+2023-04-10 00:33:34,877 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/chartjs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFYQAg&usg=AOvVaw1Dk1hrqzQE4nF4IUuPIQJY
+2023-04-10 00:33:34,878 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/chartjs
+2023-04-10 00:33:34,878 [MainThread  ] [INFO] Found unique URL #16: https://github.com/chartjs
+2023-04-10 00:33:34,878 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/jumpserver&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFMQAg&usg=AOvVaw2hjAkvBQ3FCa8hAZ6tTrRF
+2023-04-10 00:33:34,878 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/jumpserver
+2023-04-10 00:33:34,878 [MainThread  ] [INFO] Found unique URL #17: https://github.com/jumpserver
+2023-04-10 00:33:34,879 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/collections&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFUQAg&usg=AOvVaw3o27xFF0WkuiCaBqpxmCJG
+2023-04-10 00:33:34,879 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/collections
+2023-04-10 00:33:34,879 [MainThread  ] [INFO] Found unique URL #18: https://github.com/collections
+2023-04-10 00:33:34,879 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/citizenlab&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFQQAg&usg=AOvVaw08FzeFGjhyupzpcyleuRBK
+2023-04-10 00:33:34,880 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/citizenlab
+2023-04-10 00:33:34,880 [MainThread  ] [INFO] Found unique URL #19: https://github.com/citizenlab
+2023-04-10 00:33:34,880 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/utahemre&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFIQAg&usg=AOvVaw2OW6VlVBOw9VrtprXKk5DO
+2023-04-10 00:33:34,880 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/utahemre
+2023-04-10 00:33:34,880 [MainThread  ] [INFO] Found unique URL #20: https://github.com/utahemre
+2023-04-10 00:33:34,881 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/oracle&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECE8QAg&usg=AOvVaw1wZdCrWTuoqnsiznU2WTiX
+2023-04-10 00:33:34,881 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/oracle
+2023-04-10 00:33:34,881 [MainThread  ] [INFO] Found unique URL #21: https://github.com/oracle
+2023-04-10 00:33:34,881 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/ghost&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECFAQAg&usg=AOvVaw1LHK_iPl1P-whPF7BWH2z7
+2023-04-10 00:33:34,882 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/ghost
+2023-04-10 00:33:34,882 [MainThread  ] [INFO] Found unique URL #22: https://github.com/ghost
+2023-04-10 00:33:34,882 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mojombo&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECE4QAg&usg=AOvVaw0d3Xhuang3P_-Evg77nn8S
+2023-04-10 00:33:34,882 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mojombo
+2023-04-10 00:33:34,883 [MainThread  ] [INFO] Found unique URL #23: https://github.com/mojombo
+2023-04-10 00:33:34,883 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/bitwarden&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECE0QAg&usg=AOvVaw3tM8526EbJRcJ4NtNT_w5S
+2023-04-10 00:33:34,883 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/bitwarden
+2023-04-10 00:33:34,883 [MainThread  ] [INFO] Found unique URL #24: https://github.com/bitwarden
+2023-04-10 00:33:34,883 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/googlechrome&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEwQAg&usg=AOvVaw1ttLCuCZDmi0Iob2LwZk4R
+2023-04-10 00:33:34,884 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/googlechrome
+2023-04-10 00:33:34,884 [MainThread  ] [INFO] Found unique URL #25: https://github.com/googlechrome
+2023-04-10 00:33:34,884 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/italia/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEoQAg&usg=AOvVaw0iRmJFovloo_hZrXsNunCU
+2023-04-10 00:33:34,884 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/italia/
+2023-04-10 00:33:34,885 [MainThread  ] [INFO] Found unique URL #26: https://github.com/italia/
+2023-04-10 00:33:34,885 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/europeana&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEsQAg&usg=AOvVaw1gTS5Zyy2lL9jSCKPE0DK-
+2023-04-10 00:33:34,885 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/europeana
+2023-04-10 00:33:34,885 [MainThread  ] [INFO] Found unique URL #27: https://github.com/europeana
+2023-04-10 00:33:34,885 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/magento&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEgQAg&usg=AOvVaw0QBGpBkCrjp5faruIdeDPm
+2023-04-10 00:33:34,886 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/magento
+2023-04-10 00:33:34,886 [MainThread  ] [INFO] Found unique URL #28: https://github.com/magento
+2023-04-10 00:33:34,886 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/chriswhong&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEYQAg&usg=AOvVaw24JdkFNNQbgrsQip7DVT_b
+2023-04-10 00:33:34,886 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/chriswhong
+2023-04-10 00:33:34,888 [MainThread  ] [INFO] Found unique URL #29: https://github.com/chriswhong
+2023-04-10 00:33:34,889 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mongodb&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEkQAg&usg=AOvVaw2ATLsSQeRQyxb3_U6vgCZq
+2023-04-10 00:33:34,890 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mongodb
+2023-04-10 00:33:34,890 [MainThread  ] [INFO] Found unique URL #30: https://github.com/mongodb
+2023-04-10 00:33:34,890 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/webmachinelearning&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEcQAg&usg=AOvVaw0ztXJ3A5LXPcpqFD3Kyfan
+2023-04-10 00:33:34,890 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/webmachinelearning
+2023-04-10 00:33:34,891 [MainThread  ] [INFO] Found unique URL #31: https://github.com/webmachinelearning
+2023-04-10 00:33:34,891 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/ProtonMail&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEQQAg&usg=AOvVaw3ISL0rexNtWjnyqVvhvBTW
+2023-04-10 00:33:34,891 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/ProtonMail
+2023-04-10 00:33:34,892 [MainThread  ] [INFO] Found unique URL #32: https://github.com/ProtonMail
+2023-04-10 00:33:34,892 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/Azure&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEUQAg&usg=AOvVaw3kIYjETJC2xiSW6oI0tdUq
+2023-04-10 00:33:34,892 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/Azure
+2023-04-10 00:33:34,892 [MainThread  ] [INFO] Found unique URL #33: https://github.com/Azure
+2023-04-10 00:33:34,893 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/vmware&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEMQAg&usg=AOvVaw2OX_qZxeaNRRpOoItLvMpB
+2023-04-10 00:33:34,893 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/vmware
+2023-04-10 00:33:34,893 [MainThread  ] [INFO] Found unique URL #34: https://github.com/vmware
+2023-04-10 00:33:34,893 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/kubernetes&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEEQAg&usg=AOvVaw2KWEKwbWq85m_2QJpwVIcq
+2023-04-10 00:33:34,894 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/kubernetes
+2023-04-10 00:33:34,894 [MainThread  ] [INFO] Found unique URL #35: https://github.com/kubernetes
+2023-04-10 00:33:34,894 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/openjdk&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEIQAg&usg=AOvVaw1esw0apDsQBZvGuQg_YTnf
+2023-04-10 00:33:34,894 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/openjdk
+2023-04-10 00:33:34,895 [MainThread  ] [INFO] Found unique URL #36: https://github.com/openjdk
+2023-04-10 00:33:34,895 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/programthink&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECEAQAg&usg=AOvVaw000ZDw-27RpnY6h-DAXpjz
+2023-04-10 00:33:34,895 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/programthink
+2023-04-10 00:33:34,895 [MainThread  ] [INFO] Found unique URL #37: https://github.com/programthink
+2023-04-10 00:33:34,896 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/boundlessgeo&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECD4QAg&usg=AOvVaw1JpwYyPEbOWcVFc8hZcZH4
+2023-04-10 00:33:34,896 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/boundlessgeo
+2023-04-10 00:33:34,896 [MainThread  ] [INFO] Found unique URL #38: https://github.com/boundlessgeo
+2023-04-10 00:33:34,896 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/xpr35&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECD8QAg&usg=AOvVaw0rK8I4BvoGL0GSQ_wcfJrO
+2023-04-10 00:33:34,897 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/xpr35
+2023-04-10 00:33:34,897 [MainThread  ] [INFO] Found unique URL #39: https://github.com/xpr35
+2023-04-10 00:33:34,897 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/Petlja&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECD0QAg&usg=AOvVaw0Z3dwoGRlHqHO4IfED2GUE
+2023-04-10 00:33:34,898 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/Petlja
+2023-04-10 00:33:34,898 [MainThread  ] [INFO] Found unique URL #40: https://github.com/Petlja
+2023-04-10 00:33:34,898 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/JetBrains&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDsQAg&usg=AOvVaw2K024BJvBjI2Ql65kB15qL
+2023-04-10 00:33:34,898 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/JetBrains
+2023-04-10 00:33:34,898 [MainThread  ] [INFO] Found unique URL #41: https://github.com/JetBrains
+2023-04-10 00:33:34,899 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/SteamDatabase&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDwQAg&usg=AOvVaw0YSc2_Vstp4x63SV2Jqx3N
+2023-04-10 00:33:34,899 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/SteamDatabase
+2023-04-10 00:33:34,899 [MainThread  ] [INFO] Found unique URL #42: https://github.com/SteamDatabase
+2023-04-10 00:33:34,899 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://cli.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDoQAg&usg=AOvVaw2YPEG685q7Nk3IBSY0Bwba
+2023-04-10 00:33:34,900 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://cli.github.com/
+2023-04-10 00:33:34,900 [MainThread  ] [INFO] Found unique URL #43: https://cli.github.com/
+2023-04-10 00:33:34,900 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/directus&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDgQAg&usg=AOvVaw1XKSz3Ts8bd2CJTjuBIeVA
+2023-04-10 00:33:34,900 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/directus
+2023-04-10 00:33:34,901 [MainThread  ] [INFO] Found unique URL #44: https://github.com/directus
+2023-04-10 00:33:34,901 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/alphagov&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDkQAg&usg=AOvVaw1p20HHt47zxsQxlsS_LWEM
+2023-04-10 00:33:34,901 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/alphagov
+2023-04-10 00:33:34,901 [MainThread  ] [INFO] Found unique URL #45: https://github.com/alphagov
+2023-04-10 00:33:34,901 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/pinterest/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDcQAg&usg=AOvVaw1jmF3W7WrrNbxnLUPXQFOz
+2023-04-10 00:33:34,902 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/pinterest/
+2023-04-10 00:33:34,902 [MainThread  ] [INFO] Found unique URL #46: https://github.com/pinterest/
+2023-04-10 00:33:34,902 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/istoreos&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDYQAg&usg=AOvVaw2hwSYic1nSCr9dAwIoAXI7
+2023-04-10 00:33:34,903 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/istoreos
+2023-04-10 00:33:34,904 [MainThread  ] [INFO] Found unique URL #47: https://github.com/istoreos
+2023-04-10 00:33:34,905 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/jc21&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDUQAg&usg=AOvVaw02LRorUN0IGiCtw2sFEKzm
+2023-04-10 00:33:34,905 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/jc21
+2023-04-10 00:33:34,905 [MainThread  ] [INFO] Found unique URL #48: https://github.com/jc21
+2023-04-10 00:33:34,905 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://resources.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDQQAg&usg=AOvVaw1UoqkeKcWhg64vU8maDIuB
+2023-04-10 00:33:34,906 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://resources.github.com/
+2023-04-10 00:33:34,906 [MainThread  ] [INFO] Found unique URL #49: https://resources.github.com/
+2023-04-10 00:33:34,906 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/projectfluent&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDMQAg&usg=AOvVaw2mTGU1wEGqovhHWuIPSXNg
+2023-04-10 00:33:34,906 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/projectfluent
+2023-04-10 00:33:34,907 [MainThread  ] [INFO] Found unique URL #50: https://github.com/projectfluent
+2023-04-10 00:33:34,907 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://education.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDEQAg&usg=AOvVaw0mBhUySr2xNdyOucVQs_sI
+2023-04-10 00:33:34,907 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://education.github.com/
+2023-04-10 00:33:34,907 [MainThread  ] [INFO] Found unique URL #51: https://education.github.com/
+2023-04-10 00:33:34,908 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/vszakats&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECC4QAg&usg=AOvVaw1IHQDMMWiXk2PfB_ESBqfF
+2023-04-10 00:33:34,908 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/vszakats
+2023-04-10 00:33:34,908 [MainThread  ] [INFO] Found unique URL #52: https://github.com/vszakats
+2023-04-10 00:33:34,908 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/archlinux&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECC8QAg&usg=AOvVaw1vaFIVMSH1w2ZkaOZktHtp
+2023-04-10 00:33:34,908 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/archlinux
+2023-04-10 00:33:34,909 [MainThread  ] [INFO] Found unique URL #53: https://github.com/archlinux
+2023-04-10 00:33:34,909 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/Roblox&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDIQAg&usg=AOvVaw0p0UgerLzoT7o-DW1pGDww
+2023-04-10 00:33:34,909 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/Roblox
+2023-04-10 00:33:34,910 [MainThread  ] [INFO] Found unique URL #54: https://github.com/Roblox
+2023-04-10 00:33:34,910 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/udacity&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECC0QAg&usg=AOvVaw1UDQyx49bTVWdHWeK2_T-L
+2023-04-10 00:33:34,910 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/udacity
+2023-04-10 00:33:34,910 [MainThread  ] [INFO] Found unique URL #55: https://github.com/udacity
+2023-04-10 00:33:34,910 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/ORCID&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECDAQAg&usg=AOvVaw08N_goYSz_bdpTXKOQRNex
+2023-04-10 00:33:34,911 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/ORCID
+2023-04-10 00:33:34,911 [MainThread  ] [INFO] Found unique URL #56: https://github.com/ORCID
+2023-04-10 00:33:34,911 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/reactjs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCwQAg&usg=AOvVaw0HmBBAYSXLtu2mGMkHhQf9
+2023-04-10 00:33:34,911 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/reactjs
+2023-04-10 00:33:34,912 [MainThread  ] [INFO] Found unique URL #57: https://github.com/reactjs
+2023-04-10 00:33:34,912 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/getlantern&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCsQAg&usg=AOvVaw0HcGQ4DFk2kVkpBAApLuJm
+2023-04-10 00:33:34,912 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/getlantern
+2023-04-10 00:33:34,912 [MainThread  ] [INFO] Found unique URL #58: https://github.com/getlantern
+2023-04-10 00:33:34,913 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/phpmyadmin&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCoQAg&usg=AOvVaw2BfhGG-O8Gdm6WZ02sWB-E
+2023-04-10 00:33:34,913 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/phpmyadmin
+2023-04-10 00:33:34,913 [MainThread  ] [INFO] Found unique URL #59: https://github.com/phpmyadmin
+2023-04-10 00:33:34,913 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/covid19india&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCkQAg&usg=AOvVaw1kjHC_UareELHXI-oN6yA5
+2023-04-10 00:33:34,914 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/covid19india
+2023-04-10 00:33:34,914 [MainThread  ] [INFO] Found unique URL #60: https://github.com/covid19india
+2023-04-10 00:33:34,914 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/researchgate&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCcQAg&usg=AOvVaw0ql_ts08FlLLCqzD0qWBfO
+2023-04-10 00:33:34,914 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/researchgate
+2023-04-10 00:33:34,914 [MainThread  ] [INFO] Found unique URL #61: https://github.com/researchgate
+2023-04-10 00:33:34,915 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/osano&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCgQAg&usg=AOvVaw3tMSSW3_BAt55IEM88B5c2
+2023-04-10 00:33:34,915 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/osano
+2023-04-10 00:33:34,915 [MainThread  ] [INFO] Found unique URL #62: https://github.com/osano
+2023-04-10 00:33:34,915 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://gist.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCYQAg&usg=AOvVaw0dXMQnnrPi9aoJM4jLKpux
+2023-04-10 00:33:34,916 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://gist.github.com/
+2023-04-10 00:33:34,916 [MainThread  ] [INFO] Found unique URL #63: https://gist.github.com/
+2023-04-10 00:33:34,916 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/isomerpages&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCUQAg&usg=AOvVaw2w7KyC9aeMQQUT3LU_n8cQ
+2023-04-10 00:33:34,916 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/isomerpages
+2023-04-10 00:33:34,917 [MainThread  ] [INFO] Found unique URL #64: https://github.com/isomerpages
+2023-04-10 00:33:34,917 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/inveniosoftware&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCMQAg&usg=AOvVaw2_hXOosIFf3x4_oX_tzq7f
+2023-04-10 00:33:34,917 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/inveniosoftware
+2023-04-10 00:33:34,917 [MainThread  ] [INFO] Found unique URL #65: https://github.com/inveniosoftware
+2023-04-10 00:33:34,917 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/AUTOMATIC1111&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCQQAg&usg=AOvVaw3VJJsr8qpQYXnEkYd8P_sU
+2023-04-10 00:33:34,918 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/AUTOMATIC1111
+2023-04-10 00:33:34,918 [MainThread  ] [INFO] Found unique URL #66: https://github.com/AUTOMATIC1111
+2023-04-10 00:33:34,918 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/postmanlabs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCIQAg&usg=AOvVaw0i0cZbiNqNeSodjrqfk1OG
+2023-04-10 00:33:34,918 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/postmanlabs
+2023-04-10 00:33:34,919 [MainThread  ] [INFO] Found unique URL #67: https://github.com/postmanlabs
+2023-04-10 00:33:34,921 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/odoo&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECB0QAg&usg=AOvVaw0M_3xMO-XdwputFSxnwDWD
+2023-04-10 00:33:34,921 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/odoo
+2023-04-10 00:33:34,922 [MainThread  ] [INFO] Found unique URL #68: https://github.com/odoo
+2023-04-10 00:33:34,922 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/tensorflow&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECB8QAg&usg=AOvVaw0AvSmyM8aRvJore0k7lIMS
+2023-04-10 00:33:34,922 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/tensorflow
+2023-04-10 00:33:34,922 [MainThread  ] [INFO] Found unique URL #69: https://github.com/tensorflow
+2023-04-10 00:33:34,922 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/martinwoodward&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCAQAg&usg=AOvVaw0tRSUZYky4D9Pj9i33gLQB
+2023-04-10 00:33:34,923 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/martinwoodward
+2023-04-10 00:33:34,923 [MainThread  ] [INFO] Found unique URL #70: https://github.com/martinwoodward
+2023-04-10 00:33:34,923 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://support.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECCEQAg&usg=AOvVaw2jrtYpIfBBJxdSnu26wlKA
+2023-04-10 00:33:34,923 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://support.github.com/
+2023-04-10 00:33:34,924 [MainThread  ] [INFO] Found unique URL #71: https://support.github.com/
+2023-04-10 00:33:34,924 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/guoday&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECB4QAg&usg=AOvVaw0btwOXzK5pLpI0pVDwCI-N
+2023-04-10 00:33:34,924 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/guoday
+2023-04-10 00:33:34,924 [MainThread  ] [INFO] Found unique URL #72: https://github.com/guoday
+2023-04-10 00:33:34,925 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/Zimbra&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBsQAg&usg=AOvVaw3UpKu03Bd4N-nGwns_tR7v
+2023-04-10 00:33:34,925 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/Zimbra
+2023-04-10 00:33:34,925 [MainThread  ] [INFO] Found unique URL #73: https://github.com/Zimbra
+2023-04-10 00:33:34,925 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/dependabot&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBwQAg&usg=AOvVaw3fXHJwWT1vnuq-aSwVXeiH
+2023-04-10 00:33:34,926 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/dependabot
+2023-04-10 00:33:34,926 [MainThread  ] [INFO] Found unique URL #74: https://github.com/dependabot
+2023-04-10 00:33:34,926 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/apple&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBkQAg&usg=AOvVaw0NNH-9O-bK6vO-TTMrNwdy
+2023-04-10 00:33:34,926 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/apple
+2023-04-10 00:33:34,926 [MainThread  ] [INFO] Found unique URL #75: https://github.com/apple
+2023-04-10 00:33:34,927 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/bagder&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBoQAg&usg=AOvVaw277LJCMCRriH2ze_hmBMKT
+2023-04-10 00:33:34,927 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/bagder
+2023-04-10 00:33:34,927 [MainThread  ] [INFO] Found unique URL #76: https://github.com/bagder
+2023-04-10 00:33:34,928 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/tradingview&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBgQAg&usg=AOvVaw3OPEZqcwduN3xK5aubh__Q
+2023-04-10 00:33:34,928 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/tradingview
+2023-04-10 00:33:34,928 [MainThread  ] [INFO] Found unique URL #77: https://github.com/tradingview
+2023-04-10 00:33:34,928 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://blog.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBcQAg&usg=AOvVaw07yUrh1G5MOeTHWPqWOPfM
+2023-04-10 00:33:34,929 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://blog.github.com/
+2023-04-10 00:33:34,929 [MainThread  ] [INFO] Found unique URL #78: https://blog.github.com/
+2023-04-10 00:33:34,929 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/nodejs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBYQAg&usg=AOvVaw2bALW6DejSzQz9LAsvJocd
+2023-04-10 00:33:34,929 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/nodejs
+2023-04-10 00:33:34,930 [MainThread  ] [INFO] Found unique URL #79: https://github.com/nodejs
+2023-04-10 00:33:34,930 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/python&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBUQAg&usg=AOvVaw0SYPyhDh0m2LyXLVYOtFCE
+2023-04-10 00:33:34,930 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/python
+2023-04-10 00:33:34,930 [MainThread  ] [INFO] Found unique URL #80: https://github.com/python
+2023-04-10 00:33:34,930 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/timkpaine&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBQQAg&usg=AOvVaw10YqZ78YFykbupRgXA0kwL
+2023-04-10 00:33:34,931 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/timkpaine
+2023-04-10 00:33:34,931 [MainThread  ] [INFO] Found unique URL #81: https://github.com/timkpaine
+2023-04-10 00:33:34,931 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/zalando&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBIQAg&usg=AOvVaw3GVSGgdhx_ZEah9VTbEusU
+2023-04-10 00:33:34,931 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/zalando
+2023-04-10 00:33:34,932 [MainThread  ] [INFO] Found unique URL #82: https://github.com/zalando
+2023-04-10 00:33:34,932 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mobile&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBMQAg&usg=AOvVaw2EKDLidFz9zaUwIKdWC-z0
+2023-04-10 00:33:34,936 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mobile
+2023-04-10 00:33:34,938 [MainThread  ] [INFO] Found unique URL #83: https://github.com/mobile
+2023-04-10 00:33:34,938 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/LLK/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAwQAg&usg=AOvVaw3SQutur03OLHFTNjN-S6FI
+2023-04-10 00:33:34,938 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/LLK/
+2023-04-10 00:33:34,939 [MainThread  ] [INFO] Found unique URL #84: https://github.com/LLK/
+2023-04-10 00:33:34,939 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/OpenVPN&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAkQAg&usg=AOvVaw16jxY54LNr4LQMosNJV7UG
+2023-04-10 00:33:34,939 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/OpenVPN
+2023-04-10 00:33:34,939 [MainThread  ] [INFO] Found unique URL #85: https://github.com/OpenVPN
+2023-04-10 00:33:34,940 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/LineageOS&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAoQAg&usg=AOvVaw3dlDj4g-mZROeq27NB1SwQ
+2023-04-10 00:33:34,940 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/LineageOS
+2023-04-10 00:33:34,940 [MainThread  ] [INFO] Found unique URL #86: https://github.com/LineageOS
+2023-04-10 00:33:34,940 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mislav&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECA8QAg&usg=AOvVaw2yc_so7dH-gwxcU6Q24kEY
+2023-04-10 00:33:34,941 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mislav
+2023-04-10 00:33:34,941 [MainThread  ] [INFO] Found unique URL #87: https://github.com/mislav
+2023-04-10 00:33:34,941 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/LinqLover&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBAQAg&usg=AOvVaw3l1VErS-Ni6GaNwWl-P1rm
+2023-04-10 00:33:34,941 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/LinqLover
+2023-04-10 00:33:34,942 [MainThread  ] [INFO] Found unique URL #88: https://github.com/LinqLover
+2023-04-10 00:33:34,942 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/mourner&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECA4QAg&usg=AOvVaw0jC_x-ntOgzLej363wWNMY
+2023-04-10 00:33:34,942 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/mourner
+2023-04-10 00:33:34,942 [MainThread  ] [INFO] Found unique URL #89: https://github.com/mourner
+2023-04-10 00:33:34,943 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://socialimpact.github.com/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAsQAg&usg=AOvVaw29W9GmJRkN7dfdqW1G1ViN
+2023-04-10 00:33:34,943 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://socialimpact.github.com/
+2023-04-10 00:33:34,943 [MainThread  ] [INFO] Found unique URL #90: https://socialimpact.github.com/
+2023-04-10 00:33:34,943 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/GitbookIO&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECBEQAg&usg=AOvVaw0b0WoZJ1ymlkH14RL-_RnH
+2023-04-10 00:33:34,944 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/GitbookIO
+2023-04-10 00:33:34,944 [MainThread  ] [INFO] Found unique URL #91: https://github.com/GitbookIO
+2023-04-10 00:33:34,944 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/youtube&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECA0QAg&usg=AOvVaw0l2UqazaiPoqdVei5ccBhW
+2023-04-10 00:33:34,944 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/youtube
+2023-04-10 00:33:34,945 [MainThread  ] [INFO] Found unique URL #92: https://github.com/youtube
+2023-04-10 00:33:34,945 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/disconnectme&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAgQAg&usg=AOvVaw0GVyT1kED3yiQSjedIBoMt
+2023-04-10 00:33:34,945 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/disconnectme
+2023-04-10 00:33:34,945 [MainThread  ] [INFO] Found unique URL #93: https://github.com/disconnectme
+2023-04-10 00:33:34,945 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/videojs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAEQAg&usg=AOvVaw00FYpirhx8oim3XY7zZzwl
+2023-04-10 00:33:34,946 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/videojs
+2023-04-10 00:33:34,946 [MainThread  ] [INFO] Found unique URL #94: https://github.com/videojs
+2023-04-10 00:33:34,946 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/homebrew&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAYQAg&usg=AOvVaw3O2sZxIxT8Abtpp0SswVGQ
+2023-04-10 00:33:34,946 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/homebrew
+2023-04-10 00:33:34,947 [MainThread  ] [INFO] Found unique URL #95: https://github.com/homebrew
+2023-04-10 00:33:34,947 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/dequelabs&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAIQAg&usg=AOvVaw3QjkMWDkrq-6v2Y4UegcvL
+2023-04-10 00:33:34,947 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/dequelabs
+2023-04-10 00:33:34,947 [MainThread  ] [INFO] Found unique URL #96: https://github.com/dequelabs
+2023-04-10 00:33:34,948 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/oacore&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAcQAg&usg=AOvVaw31sCF0T_pazrmPQNxnYbXg
+2023-04-10 00:33:34,948 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/oacore
+2023-04-10 00:33:34,948 [MainThread  ] [INFO] Found unique URL #97: https://github.com/oacore
+2023-04-10 00:33:34,948 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/googleanalytics/&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAQQAg&usg=AOvVaw2NZGvBWA2ojRod788MVJlB
+2023-04-10 00:33:34,948 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/googleanalytics/
+2023-04-10 00:33:34,949 [MainThread  ] [INFO] Found unique URL #98: https://github.com/googleanalytics/
+2023-04-10 00:33:34,949 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/thejonanshow&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAAQAg&usg=AOvVaw0e-wE2a1LEMPtXaWEQnpZa
+2023-04-10 00:33:34,950 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/thejonanshow
+2023-04-10 00:33:34,952 [MainThread  ] [INFO] Found unique URL #99: https://github.com/thejonanshow
+2023-04-10 00:33:34,952 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://github.com/NoRedInk&sa=U&ved=2ahUKEwj_2Mqlgp3-AhWUOEQIHR70Dc8QFnoECAUQAg&usg=AOvVaw1FgZCpPa8gMYk3fmk4Vxon
+2023-04-10 00:33:34,952 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://github.com/NoRedInk
+2023-04-10 00:33:34,952 [MainThread  ] [INFO] Found unique URL #100: https://github.com/NoRedInk
+2023-04-13 11:25:23,310 [MainThread  ] [INFO] Requesting URL: https://www.google.com/
+2023-04-13 11:25:24,229 [MainThread  ] [DEBUG]     status_code: 429
+2023-04-13 11:25:24,230 [MainThread  ] [DEBUG]     headers: {'User-Agent': 'Mozilla/5.0 (X11; U; Linux i686; fr-FR; rv:1.9.1) Gecko/20090624 Ubuntu/9.04 (jaunty) Firefox/3.5'}
+2023-04-13 11:25:24,231 [MainThread  ] [DEBUG]     cookies: <RequestsCookieJar[]>
+2023-04-13 11:25:24,231 [MainThread  ] [DEBUG]     proxy: 
+2023-04-13 11:25:24,231 [MainThread  ] [DEBUG]     verify_ssl: True
+2023-04-13 11:25:24,232 [MainThread  ] [WARNING] Google is blocking your IP for making too many requests in a specific time period.
+2023-04-13 11:25:24,232 [MainThread  ] [INFO] Sleeping for 45 minutes...
+2023-04-13 14:37:44,371 [MainThread  ] [INFO] Requesting URL: https://www.google.com/
+2023-04-13 14:37:44,898 [MainThread  ] [DEBUG]     status_code: 200
+2023-04-13 14:37:44,898 [MainThread  ] [DEBUG]     headers: {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10'}
+2023-04-13 14:37:44,899 [MainThread  ] [DEBUG]     cookies: <RequestsCookieJar[<Cookie 1P_JAR=2023-04-13-04 for .google.com/>, <Cookie AEC=AUEFqZdPHjvKHymJt247h6ERlIL5AXKZ1j9r6vbv0iBPCWDTxIwvZ-bOrVM for .google.com/>, <Cookie NID=511=UbJDuCjfa8PNqk-FulkagnAo5hOZphcvE7Mcplok8YlPYSid1nAcIBwprRjhIzfICCaedflNmi_8uRfchY_YGnqOROi_URhF_cYrg0ZjnQcfWUbX8R9pN31h859mQqdwA8RzxZZzFUZG2-mu7-s30_6AUoYZYqunYiLA8DhO5Wk for .google.com/>]>
+2023-04-13 14:37:44,900 [MainThread  ] [DEBUG]     proxy: 
+2023-04-13 14:37:44,901 [MainThread  ] [DEBUG]     verify_ssl: True
+2023-04-13 14:37:44,901 [MainThread  ] [INFO] Stats: start=0, num=100, total_valid_links_found=0 / max_search_result_urls_to_return=5
+2023-04-13 14:37:44,902 [MainThread  ] [INFO] Requesting URL: https://www.google.com/search?hl=en&q=Where+are+bananas+grown&num=100&btnG=Google+Search&tbs=li:1&safe=off&cr=&filter=0
+2023-04-13 14:37:45,894 [MainThread  ] [DEBUG]     status_code: 200
+2023-04-13 14:37:45,895 [MainThread  ] [DEBUG]     headers: {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/4.0.4 Safari/531.21.10'}
+2023-04-13 14:37:45,896 [MainThread  ] [DEBUG]     cookies: <RequestsCookieJar[<Cookie 1P_JAR=2023-04-13-04 for .google.com/>, <Cookie NID=511=XaIFzTtfj88ZFc76JGkQtiFDIKD_hbnIoxSDCZtAKk_Jc_dwa4v_tMFGFbkCDtMeu_t47S5omTfoYul6o_iopsdyc9s7ub8YHkrsFr_YY1a9EElyLH9EBZsDVo0BsmHyW-b6GU7mAxyMZxoQLLbS8ZO5mQOzTLCz8YUOPj-np44 for .google.com/>]>
+2023-04-13 14:37:45,896 [MainThread  ] [DEBUG]     proxy: 
+2023-04-13 14:37:45,897 [MainThread  ] [DEBUG]     verify_ssl: True
+2023-04-13 14:37:45,961 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /?num=100&safe=off&sa=G&hl=en&output=search&tbs=li:1&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQPAgC
+2023-04-13 14:37:45,963 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /?num=100&safe=off&sa=G&hl=en&output=search&tbs=li:1&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQPAgC
+2023-04-13 14:37:45,964 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-13 14:37:45,964 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=bks&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBSgB
+2023-04-13 14:37:45,964 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=bks&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBSgB
+2023-04-13 14:37:45,964 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-13 14:37:45,965 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=nws&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBigC
+2023-04-13 14:37:45,965 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=nws&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBigC
+2023-04-13 14:37:45,965 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-13 14:37:45,966 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=vid&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBygD
+2023-04-13 14:37:45,966 [MainThread  ] [DEBUG] Excluding URL because it does not contain a urllib.parse.urlparse netloc value: /search?q=Where+are+bananas+grown&num=100&safe=off&hl=en&source=lnms&tbm=vid&sa=X&ved=0ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ_AUIBygD
+2023-04-13 14:37:45,966 [MainThread  ] [DEBUG] post filter_search_result_urls() link: None
+2023-04-13 14:37:45,966 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://en.wikipedia.org/wiki/Banana&sa=U&ved=2ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQFnoECGQQAg&usg=AOvVaw1cW42zaQBfZcEFQRIJJJDd
+2023-04-13 14:37:45,967 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://en.wikipedia.org/wiki/Banana
+2023-04-13 14:37:45,967 [MainThread  ] [INFO] Found unique URL #1: https://en.wikipedia.org/wiki/Banana
+2023-04-13 14:37:45,968 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://en.wikipedia.org/wiki/Banana%23Taxonomy&sa=U&ved=2ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ0gJ6BAhkEAU&usg=AOvVaw2nXRkBi1EKN4223jRxlxoA
+2023-04-13 14:37:45,969 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://en.wikipedia.org/wiki/Banana#Taxonomy
+2023-04-13 14:37:45,970 [MainThread  ] [INFO] Found unique URL #2: https://en.wikipedia.org/wiki/Banana#Taxonomy
+2023-04-13 14:37:45,971 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://en.wikipedia.org/wiki/Banana%23Bananas_and_plantains&sa=U&ved=2ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ0gJ6BAhkEAY&usg=AOvVaw2MMs1zmUNiVrMjvjqlZPTR
+2023-04-13 14:37:45,971 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://en.wikipedia.org/wiki/Banana#Bananas_and_plantains
+2023-04-13 14:37:45,972 [MainThread  ] [INFO] Found unique URL #3: https://en.wikipedia.org/wiki/Banana#Bananas_and_plantains
+2023-04-13 14:37:45,972 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://en.wikipedia.org/wiki/Banana%23Historical_cultivation&sa=U&ved=2ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ0gJ6BAhkEAc&usg=AOvVaw1wsPhJcVdk-qQBgzmXGkMl
+2023-04-13 14:37:45,974 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://en.wikipedia.org/wiki/Banana#Historical_cultivation
+2023-04-13 14:37:45,975 [MainThread  ] [INFO] Found unique URL #4: https://en.wikipedia.org/wiki/Banana#Historical_cultivation
+2023-04-13 14:37:45,975 [MainThread  ] [DEBUG] pre filter_search_result_urls() link: /url?q=https://en.wikipedia.org/wiki/Banana%23Modern_cultivation&sa=U&ved=2ahUKEwitiLrJhKb-AhWqt5UCHWOjDTIQ0gJ6BAhkEAg&usg=AOvVaw3hl3dG9SF9TljFiQ9EvFSb
+2023-04-13 14:37:45,975 [MainThread  ] [DEBUG] post filter_search_result_urls() link: https://en.wikipedia.org/wiki/Banana#Modern_cultivation
+2023-04-13 14:37:45,975 [MainThread  ] [INFO] Found unique URL #5: https://en.wikipedia.org/wiki/Banana#Modern_cultivation

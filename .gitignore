@@ -1,0 +1,6 @@
+/TheBloke_Llama-2-7b-Chat-GPTQ
+/cache
+/chromadb
+/Lib
+*.bin
+*.safetensors

@@ -1,0 +1,4 @@
+THOUGHTS: I am ready summarising the general contents of a web search on AI.
+PLAN: My plan is to conduct a web search using the 'Search' command and gather relevant information from the top results. I will then organize and summarise the information into a concise format.
+NEXT TASK: Once I have completed my summary, I will save it to a file using the 'Save_TXT()' command.
+COMMANDS: None.

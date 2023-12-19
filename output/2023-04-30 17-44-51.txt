@@ -1,0 +1,9 @@
+Thoughts: As an AI, I am able to perform tasks efficiently and effectively. However, since I have a limited amount of short-term memory, I must use external tools such as writing to a file to store important information.
+Plan: To achieve the task of summarizing a web search on AI, I will follow these steps:
+1. Conduct a web search using the command 'Search(AI)'
+2. Review the search results and identify the most relevant and reliable sources
+3. Read through the identified sources and extract the most important information related to AI
+4. Use the 'Save_TXT()' command to write my summary to a file
+5. Review my work to ensure accuracy
+: Once I have written my summary to the file, I will review my work and make sure that it accurately reflects the information provided in the search results.
+Commands: Search(AI), Save_TXT().

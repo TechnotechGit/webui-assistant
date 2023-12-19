@@ -1,0 +1,4 @@
+ASSISTANT: THOUGHTS: Have understood the guidelines and expectations for completing tasks efficiently, and precisely.
+PLAN: I will conduct an online research activity to identify relevant news sources on the topic of artificial intelligence. Then, I will analyze their credibility and select the most reliable sources to extract information before storing them.
+NEXT TASK: None required now.
+COMMANDS: Search("Artificial Intelligence_TXT("The Impact of AI on Employment: Opportunities and Challenges").

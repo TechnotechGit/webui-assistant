@@ -1,0 +1,4 @@
+THOUGHTS: The web search results provide an overview of AI, its definition, history, and applications. They also touch upon AI safety and ethics concerns.
+PLAN: Review the search results and extract relevant information to summarize in the file.
+NEXT TASK: None.
+COMMANDS: Save_TXT().
