@@ -35,8 +35,11 @@ client = chromadb.Client(
 chroma_collection = client.get_or_create_collection(name="history")
 
 
-user_token = "[INST]"
-assistant_token = "[/INST]"
+# user_token = "[INST]"
+# assistant_token = "[/INST]"
+user_token = "### Instruction: \n"
+assistant_token = "### Response: \n"
+separator_token = "\n"
 
 modelAPI = 2
 
@@ -166,14 +169,14 @@ def formatWebSearchPrompt(prompt, query):
     # instruction
     # ENDINSTRUCTION
     result = ""
-    result += f"""{user_token} Respond to the question '{query}' by utilising the following web search results:"""
+    result += f"""{user_token}Respond to the question '{query}' by utilising the following web search results:"""
     for url in prompt:
          result += f"""---
 url: {url['url']}
 title: {url['title']}
 info: {url['description']}
     """
-    result += f"""---\n{assistant_token} """
+    result += f"""---\n{assistant_token}"""
          
 #     result += f"""USER: With the provided web search information, answer the following question:
 # BEGININPUT\n"""
@@ -230,6 +233,7 @@ def webSearch(prompt):
 
     return urls
 
+current_time = time.strftime("%I:%M %p")
 
 def formatPrompt(prompt):
     """
@@ -242,59 +246,44 @@ def formatPrompt(prompt):
         str: The formatted prompt for the conversation.
     """
     current_date = time.strftime("%Y-%m-%d")
-    current_time = time.strftime("%I:%M %p")
 
-#     preprompt = f"""CURRENT DATE: {current_date}.
-# CURRENT TIME: {current_time}.
-# Assistant may use commands in the formats listed below.
-# COMMANDS:
-# 1. Search the internet. Use this module if there is a query that you do not know the answer to. Format: 'Search>search term'.
-# 2. Open apps on the user's computer by searching for them. Do not assume or tell the user that apps are already open. Format: 'Open>search term for app'
-# The assistant uses these commands where needed, and responds accordingly, with only the command if it is needed.
-# """
-    preprompt = f"""CURRENT DATE: {current_date}.
+    preprompt = f"""### System: The following is a conversation between a user and an AI assistant. The assistant is helpful, creative, clever, and very friendly.
+CURRENT DATE: {current_date}.
 CURRENT TIME: {current_time}.
-"""
+- Assistant only responds in English.
+MODULES:
+The response must contain **only** the command (it **must not** include other text, such as 'Sure, I can do that'). **The user cannot use these commands**, so you should not tell the user to use them.
+`Search`
+    - Syntax: `Search>search term`
+    - Function: Searches Google. Use if the query is time based (news in 2023, for example), or you do not know the answer.
+`Open`: 
+    - Syntax: `Open>search term for app`
+    - Function: Opens an app for the user.
+{user_token}Search for latest news.{separator_token}{assistant_token}Search>latest news{separator_token}"""
+#     preprompt = f"""CURRENT DATE: {current_date}.
+# BEGIN TIME: {current_time}.
+# No emojis.
+# """
     # Iterate through chat history and add each message to preprompt with prefix
     for message in chat_history:
-        preprompt += f"{user_token} " + message["user"] + "\n"
-        preprompt += f"{assistant_token} " + message["bot"] + "\n"
-    preprompt += f"{user_token} " + prompt
+        preprompt += f"{user_token}" + message["user"] + separator_token
+        preprompt += f"{assistant_token}" + message["bot"] + separator_token
+    preprompt += f"{user_token}" + prompt
     return preprompt
 
 
 generator = ""
 
-# def chooseModel(i):
-#     modelAPI = i
-#     if modelAPI == 0:
-#         generator = AIModel(host="localhost:7860")
-#         def generate_response_tokens(input_text):
-#             preprompt = formatPrompt(input_text)
+modelSettings = {
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 0.9,
+    "repetition_penalty": 1.15,
+    "max_tokens": 1024,
+    "min_p": 0.02,
+}
 
-#             tokens = generator.response_stream(preprompt)
-
-#             for token in tokens:
-#                 token = token.replace(preprompt, "")
-#                 full_text += token
-#                 yield token
-#             chat_history.append({'user': input_text, 'bot': full_text})
-#     elif modelAPI == 1:
-#         generator = ""
-#         tokens = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a. Dui id ornare arcu odio ut sem nulla. Consequat id porta nibh venenatis. At quis risus sed vulputate odio ut enim blandit. Nisl condimentum id venenatis a condimentum vitae sapien pellentesque. Ut aliquam purus sit amet luctus venenatis lectus magna fringilla. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Scelerisque varius morbi enim nunc faucibus a pellentesque sit amet. Dignissim cras tincidunt lobortis feugiat vivamus at.".split(" ")
-#         def generate_response_tokens(input_text):
-#             for token in tokens:
-#                 time.sleep(0.04)  # Simulating some processing time
-#                 token += " "
-#                 yield token
-#     else:
-#         generator = GenerateResponse("airoboros-7B-gpt4-1.4-GPTQ")
-#         async def generate_response_tokens(input_text):
-#             tokens = generator.generate_simple(formatPrompt(input_text), 500)
-
-#             async for token in tokens:
-#                 yield token
-
+current_model = None
 
 def chooseModel(i):
     """
@@ -341,7 +330,7 @@ def chooseModel(i):
 
     elif modelAPI == 2:
         def generate_response_tokens(input_text):
-            _python_server = True
+            _python_server = False
             OPENAI_API_BASE_URL = "http://localhost:8000"
 
             if _python_server:
@@ -353,11 +342,12 @@ def chooseModel(i):
                         "<s>",
                         "</s>"
                     ],
-                    "min_p": 0.02,
-                    "max_tokens": 500,
-                    "temperature": 0.7,
-                    "repeat_penalty": 1.0,
-                    "top_k": 32000,
+                    "min_p": float(modelSettings["min_p"]),
+                    "n_predict": float(modelSettings["max_tokens"]),
+                    "temperature": float(modelSettings["temperature"]),
+                    "repeat_penalty": float(modelSettings["repetition_penalty"]),
+                    "top_k": float(modelSettings["top_k"]),
+                    "top_p": float(modelSettings["top_p"]),
                     "stream": "true"
                 }
                 headers = {
@@ -369,15 +359,23 @@ def chooseModel(i):
                 data = {
                     "prompt": input_text,
                     "stop": [
+                        user_token,
+                        separator_token + user_token,
                         "###",
                         "<s>",
                         "</s>"
                     ],
-                    "min_p": 0.02,
-                    "n_predict": 500,
-                    "temperature": 1.1,
-                    "repeat_penalty": 1.0,
-                    "top_k": 32000,
+                    # "min_p": 0.02,
+                    # "n_predict": 500,
+                    # "temperature": 1.1,
+                    # "repeat_penalty": 1.0,
+                    # "top_k": 32000,
+                    "min_p": float(modelSettings["min_p"]),
+                    "n_predict": float(modelSettings["max_tokens"]),
+                    "temperature": float(modelSettings["temperature"]),
+                    "repeat_penalty": float(modelSettings["repetition_penalty"]),
+                    "top_k": float(modelSettings["top_k"]),
+                    "top_p": float(modelSettings["top_p"]),
                     "cache_prompt": True,
                     "stream": True
                 }
@@ -404,7 +402,11 @@ def chooseModel(i):
                             if _python_server:
                                 data = json_data["choices"][0]["text"]
                             else:
+                                if json_data["stop"]:
+                                    global current_model
+                                    current_model = json_data["model"] 
                                 data = json_data["content"]
+                            # print(data)
                             yield data
                     except Exception as e:
                         print(f"Exception while processing line: {e}")
@@ -441,6 +443,9 @@ def random_hash():
 chat_history = []
 app = Flask(__name__)
 
+def reset_chat_history():
+    global chat_history
+    chat_history = []
 
 def non_streaming_response(prompt):
     res_str = ""
@@ -453,7 +458,7 @@ def response_request(prompt):
     input_text = formatPrompt(prompt)
     # print(non_streaming_response(f"{user_token}: {formatPrompt(prompt)}\nWill this request need conversation history? Yes or no?\n{assistant_token}: The answer is:"))
     # print(chroma_collection.query(query_texts=[prompt], n_results=5))
-    input_text = input_text + f" {assistant_token} "
+    input_text = input_text + separator_token + f"{assistant_token}"
     print(input_text)
     res_str = ""
     for i in model_generator.generate_response_tokens(
@@ -477,9 +482,11 @@ def response_request(prompt):
         new_input = formatWebSearchPrompt(search_results, prompt)
         yield f'{{data: {{"info": "{web_search}", "task": "search", "success": true}}}}'
         print(f"Here are the top 5 search results for '{prompt}'\n{search_results}")
-        # yield "Search results:"
+        sr = ""
         for i in model_generator.generate_response_tokens(new_input):
+            sr += i
             yield f"{i}"
+        res_str += "\n---\n" + sr
 
     chat_history.append({"user": prompt, "bot": res_str})
     get_date_time = time.strftime("%Y-%m-%d %I:%M %p")
@@ -504,6 +511,25 @@ def stream():
         stream_with_context(response_request(input_text)), mimetype="text/event-stream"
     )
 
+@app.route('/edit_settings', methods=['POST'])
+def receive_data():
+    data = request.json
+    global modelSettings
+    modelSettings = {
+        'temperature': data['temperature'],
+        'top_k': data['top_k'],
+        'top_p': data['top_p'],
+        'repetition_penalty': data['repetition_penalty'],
+        'max_tokens': data['max_tokens'],
+        'min_p': data['min_p']
+    }
+    print(modelSettings)
+    return jsonify({'status': 'success'}), 200
+
+@app.route('/get-model')
+def get_data():
+    data = {'model': current_model}  # Replace with your actual data
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

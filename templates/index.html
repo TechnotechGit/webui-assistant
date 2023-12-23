@@ -1,54 +1,177 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Flask Chat App</title>
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=96iwcskfQ5VzMHmILMWqdsHCHwKiJXEaaDfTRto-nSLDpFiDvjeVxQaSJ1tImamciO4qScg3ph9AWK3Gmnw-BWGLGznIzji-m_n8cxvoNrxgYbgVwYM5rws-EL8FH6MVJYKFVckU-BII7Cpqa1o_Cw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvODc2MzQyMjU5MzYzMjQyMDM4LzExMjQzMDk1ODg0NDgxMjQ5MjgvaW5kZXguaHRtbA"/><script src="https://unpkg.com/autosize@6.0.1/dist/autosize.min.js"></script>
+    <script type="text/javascript"
+        src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=96iwcskfQ5VzMHmILMWqdsHCHwKiJXEaaDfTRto-nSLDpFiDvjeVxQaSJ1tImamciO4qScg3ph9AWK3Gmnw-BWGLGznIzji-m_n8cxvoNrxgYbgVwYM5rws-EL8FH6MVJYKFVckU-BII7Cpqa1o_Cw"
+        charset="UTF-8"></script>
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvODc2MzQyMjU5MzYzMjQyMDM4LzExMjQzMDk1ODg0NDgxMjQ5MjgvaW5kZXguaHRtbA" />
+    <script src="https://unpkg.com/autosize@6.0.1/dist/autosize.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- import main.css with flask -->
     <link rel="stylesheet" href="{{url_for('.static', filename='main.css')}}">
     <link href="{{url_for('.static', filename='emoji.css')}}" rel="stylesheet" type="text/css" />
     <script src="{{url_for('.static', filename='emoji.min.js')}}" type="text/javascript"></script>
 </head>
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+    }
+</style>
+
 <body>
-    <div class="settings-container">
-        <div class="label">Port</div>
-        <div class="settings-input-container">
-            <div class="input-container-error">
-                <input type="text" placeholder="localhost:5000" id="host-input" class="settings-input">
+    <div class="main-container">
+        <div class="sidebar">
+            <div>
+                <button id="chat-button" class="sidebar-button">
+                    <span class="material-symbols-outlined">
+                        chat
+                    </span>
+                </button>
+                <button id="write-button" class="sidebar-button">
+                    <span class="material-symbols-outlined">
+                        edit_note
+                    </span>
+                </button>
             </div>
+            <!-- Settings button with icon-->
+            <button id="settings-button" class="sidebar-button">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </button>
         </div>
-        <div class="label">Assistant Name</div>
-        <div class="settings-input-container">
-            <div class="input-container-error">
-                <input type="text" placeholder="Assistant" id="name-input" class="settings-input">
+        <div class="settings-container fade-in">
+            <h2 class="label" style="margin-top: 0.5rem;">General Settings</h2>
+            <div class="label">Port</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="localhost:5000" id="host-input" class="settings-input">
+                </div>
             </div>
+            <div class="label">Assistant Name</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="Assistant" id="name-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Theme</div>
+            <div class="settings-input-container">
+                <!-- dropdown -->
+                <div class="input-container-error">
+                    <select id="theme-input" class="settings-input">
+                        <option value="1">Blue</option>
+                        <option value="2">Blue and White</option>
+                        <option value="3">White and Green</option>
+                        <option value="4">Sepia</option>
+                        <option value="5">Terminal</option>
+                        <option value="6">Dark Green</option>
+                        <option value="7">Dark Blue</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2 class="label">Model Settings</h2>
+            <div class="label">Temperature</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="0.7" id="temperature-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Top P</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="1" id="top-p-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Top K</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="50" id="top-k-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Max Tokens</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="1024" id="max-tokens-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Repetition Penalty</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="1.0" id="repetition-penalty-input" class="settings-input">
+                </div>
+            </div>
+            <div class="label">Min P (llama.cpp only)</div>
+            <div class="settings-input-container">
+                <div class="input-container-error">
+                    <input type="text" placeholder="0.02" id="min-p-input" class="settings-input">
+                </div>
+            </div>
+
         </div>
-    </div>
-    <div class="chat-container">
-        <div class="chat-messages">
-            <div id="chat-messages">
-                {% for entry in chat_history %}
-                    <div class="sent-message">
-                        <div class="message user">
-                            <div class="message-bubble">{{ entry.user }}</div>
+        <div class="flex-col">
+            <div class="title-bar">
+                <div class="title">...</div>
+                <div class="ts-meter">? t/s</div>
+            </div>
+            <div class="write-container fade-in">
+                <h2 style="margin-top: 0.5rem;">Write</h2>
+                <div class="label" style="margin-top: 1rem;">Style</div>
+                <div class="w-divider">
+                    <select id="style-input" class="write-dropdown">
+                        <option value="1">arXiv Paper</option>
+                        <option value="2">Reddit Post</option>
+                        <option value="3">Email Draft</option>
+                        <option value="4">Blog Post</option>
+                    </select>
+                    <button type="button" class="write-button">Generate</button>
+                </div>
+                <div class="input-container">
+                    <textarea type="text" rows='4' class="write-input" placeholder="Type your message..."></textarea>
+                </div>
+            </div>
+            <div class="chat-container fade-in">
+                <div class="flex-col">
+                    <div class="chat-messages">
+                        <div id="chat-messages">
+                            {% for entry in chat_history %}
+                            <div class="sent-message">
+                                <div class="message user">
+                                    <div class="message-bubble">{{ entry.user }}</div>
+                                </div>
+                            </div>
+                            <div class="message bot">
+                                <div class="message-bubble">{{ entry.bot }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="stop-button-container">
+                            <button id="stop-button">▢&ThickSpace;Stop Generating</button>
+                        </div>
+                        <div class="above-input-container">
+                            <div id="typing-animation"><span>●</span><span>●</span><span>●</span></div>
                         </div>
                     </div>
-                    <div class="message bot">
-                        <div class="message-bubble">{{ entry.bot }}</div>
+                    <div class="input-container">
+                        <textarea type="text" rows='1' class="chat-input" id="chat-input"
+                            placeholder="Type your message..."></textarea>
                     </div>
-                {% endfor %}
+                </div>
             </div>
-            <div class="stop-button-container">
-                <button id="stop-button">▢&ThickSpace;Stop Generating</button>
-            </div>
-            <div class="above-input-container">
-                <div id="typing-animation"><span>●</span><span>●</span><span>●</span></div>
-            </div>
-        </div>
-        <div class="input-container">
-            <textarea type="text" rows='1' class="chat-input" id="chat-input" placeholder="Type your message..."></textarea>
+
         </div>
     </div>
 </body>
 <script src="{{url_for('.static', filename='main.js')}}"></script>
+
 </html>

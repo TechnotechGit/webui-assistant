@@ -1,10 +1,17 @@
-let chatContainer = document.querySelector('.chat-container');
-let settingsContainer = document.querySelector('.settings-container');
+const chatContainer = document.querySelector('.chat-container');
+const chatButton = document.querySelector('#chat-button');
+const writeContainer = document.querySelector('.write-container');
+const writeButton = document.querySelector('#write-button');
+const settingsContainer = document.querySelector('.settings-container');
+const settingsButton = document.querySelector('#settings-button');
+
+const titleBar = document.querySelector('.title-bar');
 
 const tabHandler = class {
     constructor() {
         this.tab = null;
-        this.tab_elems = { "chat": [chatContainer, "flex"], "settings": [settingsContainer, "block"] };
+        // element, display, button, title-bar y/n
+        this.tab_elems = { "chat": [chatContainer, "flex", chatButton, true], "write": [writeContainer, "block", writeButton, true], "settings": [settingsContainer, "block", settingsButton, false] };
     }
 
     set(value) {
@@ -15,9 +22,16 @@ const tabHandler = class {
             console.log(this.tab, tabKeys[i]);
             if (this.tab === tabKeys[i]) {
                 this.tab_elems[tabKeys[i]][0].style.display = this.tab_elems[tabKeys[i]][1];
+                this.tab_elems[tabKeys[i]][2].classList.add('active');
             } else {
                 this.tab_elems[tabKeys[i]][0].style.display = 'none';
+                this.tab_elems[tabKeys[i]][2].classList.remove('active');
             }
+        }
+        if (this.tab_elems[this.tab][3]) {
+            titleBar.style.display = 'flex';
+        } else {
+            titleBar.style.display = 'none';
         }
     }
 
@@ -113,6 +127,202 @@ const themeHandler = class {
 window.theme = new themeHandler();
 window.theme.set(window.theme.get());
 
+// Settings
+
+// Theme button
+const themeInput = document.querySelector('#theme-input');
+themeInput.value = window.theme.get();
+
+themeInput.addEventListener('change', (event) => {
+    window.theme.set(event.target.value);
+})
+
+// Model Settings
+
+const modelSettings = class {
+    constructor() {
+        this.temperature = 0.7;
+        this.top_p = 0.9;
+        this.top_k = 32000;
+        this.max_tokens = 1024;
+        this.repetition_penalty = 1.0;
+        this.min_p = 0.02;
+    }
+
+    update() {
+        localStorage.setItem('temperature', this.temperature);
+        localStorage.setItem('top_p', this.top_p);
+        localStorage.setItem('top_k', this.top_k);
+        localStorage.setItem('max_tokens', this.max_tokens);
+        localStorage.setItem('repetition_penalty', this.repetition_penalty);
+        localStorage.setItem('min_p', this.min_p);
+    }
+
+    retrieve() {
+        const settings = {
+            temperature: localStorage.getItem('temperature'),
+            top_p: localStorage.getItem('top_p'),
+            top_k: localStorage.getItem('top_k'),
+            max_tokens: localStorage.getItem('max_tokens'),
+            repetition_penalty: localStorage.getItem('repetition_penalty'),
+            min_p: localStorage.getItem('min_p'),
+        };
+
+        if (Object.values(settings).some(value => value == null || value == NaN || value == "")) {
+            return null;
+        }
+
+        Object.assign(this, settings);
+        return true;
+    }
+
+    get() {
+        return {
+            temperature: this.temperature,
+            top_p: this.top_p,
+            top_k: this.top_k,
+            max_tokens: this.max_tokens,
+            repetition_penalty: this.repetition_penalty,
+            min_p: this.min_p,
+        };
+    }
+
+    set(key, value) {
+        if (Object.keys(this).includes(key)) {
+            this[key] = value;
+        }
+    }
+}
+
+// Map to HTML inputs
+const temperatureInput = document.querySelector('#temperature-input');
+const topPInput = document.querySelector('#top-p-input');
+const topKInput = document.querySelector('#top-k-input');
+const maxTokensInput = document.querySelector('#max-tokens-input');
+const repetitionPenaltyInput = document.querySelector('#repetition-penalty-input');
+const minPInput = document.querySelector('#min-p-input');
+
+window.settings = new modelSettings();
+
+if (window.settings.retrieve() !== null) {
+    console.log("yes")
+    window.settings.retrieve();
+}
+// else {
+//     window.settings.set('temperature', temperatureInput.value);
+//     window.settings.set('top_p', topPInput.value);
+//     window.settings.set('top_k', topKInput.value);
+//     window.settings.set('max_tokens', maxTokensInput.value);
+//     window.settings.set('repetition_penalty', repetitionPenaltyInput.value);
+//     window.settings.set('min_p', minPInput.value);
+// }
+
+temperatureInput.value = window.settings.get().temperature;
+topPInput.value = window.settings.get().top_p;
+topKInput.value = window.settings.get().top_k;
+maxTokensInput.value = window.settings.get().max_tokens;
+repetitionPenaltyInput.value = window.settings.get().repetition_penalty;
+minPInput.value = window.settings.get().min_p;
+
+window.settings.update();
+
+temperatureInput.addEventListener('change', (event) => {
+    window.settings.set('temperature', event.target.value);
+    window.settings.update();
+})
+
+topPInput.addEventListener('change', (event) => {
+    window.settings.set('top_p', event.target.value);
+    window.settings.update();
+})
+
+topKInput.addEventListener('change', (event) => {
+    window.settings.set("top_k", event.target.value);
+    window.settings.update();
+})
+
+maxTokensInput.addEventListener('change', (event) => {
+    window.settings.set("max_tokens", event.target.value);
+    window.settings.update();
+})
+
+repetitionPenaltyInput.addEventListener('change', (event) => {
+    window.settings.set("repetition_penalty", event.target.value);
+    window.settings.update();
+})
+
+minPInput.addEventListener('change', (event) => {
+    window.settings.set("min_p", event.target.value);
+    window.settings.update();
+})
+
+function sendDataToFlask(data, route) {
+    fetch(route, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+sendDataToFlask(window.settings.get(), '/edit_settings');
+
+window.model = "Unknown";
+
+const titleElem = document.querySelector('.title')
+const tsMeter = document.querySelector('.ts-meter')
+
+function updateTitle() {
+    if (window.model) {
+        titleElem.innerHTML = `${window.model}&ThickSpace;|&ThickSpace;Temp: ${Number(window.settings.get().temperature).toFixed(2)}`;
+    }
+}
+
+chatButton.addEventListener('click', () => {
+    tab.set('chat');
+    sendDataToFlask(window.settings.get(), '/edit_settings');
+    updateTitle()
+})
+
+writeButton.addEventListener('click', () => {
+    tab.set('write');
+    sendDataToFlask(window.settings.get(), '/edit_settings');
+    updateTitle()
+})
+
+settingsButton.addEventListener('click', () => {
+    tab.set('settings');
+    sendDataToFlask(window.settings.get(), '/edit_settings');
+    updateTitle()
+})
+
+function getModelName() {
+    fetch('/get-model')
+        .then(response => response.json())
+        .then(data => {
+            if (data.model) {
+                window.model = data.model;
+            }
+            else {
+                window.model = "Unknown";
+            }
+            updateTitle()
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+getModelName()
+
 const emoji = new EmojiConvertor();
 emoji.replace_mode = 'unified';
 emoji.allow_native = true;
@@ -188,6 +398,9 @@ chatInput.addEventListener('keydown', function (event) {
         // chatInput.disabled = true;
         window.streaming = true;
 
+        num_tokens = 0
+        first_token = true
+
         function scrollToBottom() {
             function animation() {
                 // chatMessages.scrollTop = chatMessages.scrollHeight - chatMessages.clientHeight;
@@ -240,6 +453,7 @@ chatInput.addEventListener('keydown', function (event) {
                                     stopButton.style.display = 'none';
                                     typingAnimation.style.display = 'none';
                                     window.streaming = false;
+                                    getModelName()
                                     // if (typeAnim !== "CGPT" && typeAnim !== "Terminal") {
                                     //     // Wait for animation on content lastchild to finish
                                     //     const lastChild = content.lastElementChild;
@@ -251,9 +465,19 @@ chatInput.addEventListener('keydown', function (event) {
                                     //     content.innerHTML = result;
                                     return;
                                 }
+                                if (first_token) {
+                                    base_time = Date.now();
+                                    first_token = false
+                                } else {
+                                    // calc time
+                                    num_tokens++
+                                    ts = num_tokens / ((Date.now() - base_time) / 1000)
+                                    console.log((Date.now() - base_time).toFixed(2), num_tokens, ts)
+                                    tsMeter.innerText = `${ts.toFixed(2)} t/s`
+                                }
 
                                 let token = new TextDecoder().decode(value);
-                                console.log(token)
+                                // console.log(token)
                                 // Define the regex pattern
                                 // const regex = /data:\s*(.*?)\n\n/g;
                                 // const regex = /data:\s*(.*?)\n\n(?:data: \{.*?\}\n\n)?/gs;
@@ -265,7 +489,7 @@ chatInput.addEventListener('keydown', function (event) {
                                 let jsonObjects = Array.from(token.matchAll(regex), match => match[1].trim());
                                 // tokens = Array.from(tokens.matchAll(regex), match => match[1].trim());
                                 // tokens = Array.from(tokens.matchAll(regex), match => match[1].trim());
-                                console.log(jsonObjects)
+                                // console.log(jsonObjects)
 
                                 jsonObjects.forEach(item => {
                                     const regex = new RegExp(`{data: ${item}}`, 'gi');
@@ -276,7 +500,6 @@ chatInput.addEventListener('keydown', function (event) {
                                 if (lastToken !== "text") {
                                     lastToken = "text";
                                     let receivedTokensContainer = document.createElement('div');
-                                    // receivedTokensContainer.classList.add('received-tokens');
                                     receivedTokensContainer.classList.add('message', 'bot');
                                     chatMessages.appendChild(receivedTokensContainer);
 
@@ -372,10 +595,6 @@ chatInput.addEventListener('keydown', function (event) {
                                     for (i of jsonObjects) {
                                         try {
                                             const jsonObject = JSON.parse(i);
-                                            console.log(jsonObject)
-                                            // jsonObject["info"]
-                                            // jsonObject["task"]
-                                            // jsonObject["success"]
 
                                             let receivedTokensContainer = document.createElement('div');
                                             // receivedTokensContainer.classList.add('received-tokens');
