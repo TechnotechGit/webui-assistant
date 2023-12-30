@@ -2,14 +2,15 @@ import json
 import sys
 import websocket
 
-class OobaModel:
-    def __init__(self, host='localhost:5005'):
+class ExLlamaModel:
+    def __init__(self, host='localhost:8000'):
         self.host = host
-        self.uri = f'ws://{self.host}/api/v1/stream'
+        self.uri = f'ws://{self.host}'
         self.websocket = None
 
     def connect(self):
         self.websocket = websocket.WebSocket()
+        print("Connecting")
         self.websocket.connect(self.uri)
 
     def disconnect(self):
@@ -19,6 +20,7 @@ class OobaModel:
 
     def send_request(self, request):
         if self.websocket is not None:
+            print("Sending")
             self.websocket.send(json.dumps(request))
 
     def receive_response(self):
@@ -29,30 +31,16 @@ class OobaModel:
 
     def run(self, context, stopping_strings = []):
         request = {
-            'prompt': context,
+            "action": "infer",
+            'text': context,
             'max_new_tokens': 1024,
-            'preset': 'None',
-            'do_sample': True,
+            'stream': True,
             'temperature': 0.75,
             'top_p': 0.9,
-            'typical_p': 1,
-            'epsilon_cutoff': 0,
-            'eta_cutoff': 0,
-            'top_a': 0,
-            'repetition_penalty': 1.18,
             'top_k': 40,
-            'min_length': 0,
-            'no_repeat_ngram_size': 0,
-            'num_beams': 1,
-            'penalty_alpha': 0,
-            'length_penalty': 1,
-            'early_stopping': False,
-            'seed': -1,
-            'add_bos_token': True,
-            'truncation_length': 2048,
-            'ban_eos_token': False,
-            'skip_special_tokens': True,
-            'stopping_strings': stopping_strings
+            'rep_pen': 1.0,
+            'min_p': 0.02,
+            'stop_conditions': stopping_strings
         }
 
         self.connect()
@@ -78,5 +66,31 @@ class OobaModel:
             # sys.stdout.flush()
             yield response
 
+    # async def call_api():
+    #     # Define the API endpoint
+    #     api_endpoint = "ws://api.example.com:8080"
+
+    #     # Define your request payload
+    #     request_payload = {
+    #         "action": "echo",
+    #         "request_id": "123",
+    #         "response_id": "456",
+    #         # Add other necessary fields for your specific request
+    #     }
+
+    #     # Create a WebSocket connection
+    #     async with websocket.create_connection(api_endpoint) as ws:
+    #         # Send the request payload as a JSON string
+    #         await ws.send(json.dumps(request_payload))
+
+    #         # Wait for the response from the server
+    #         response = await ws.recv()
+
+    #         # Process the response (assuming it's in JSON format)
+    #         response_data = json.loads(response)
+    #         print("Response:", response_data)
+
+
     def run_stream(self, prompt, stopping_strings = []):
         self.response_stream(prompt, stopping_strings)
+

@@ -454,15 +454,7 @@ chatInput.addEventListener('keydown', function (event) {
                                     typingAnimation.style.display = 'none';
                                     window.streaming = false;
                                     getModelName()
-                                    // if (typeAnim !== "CGPT" && typeAnim !== "Terminal") {
-                                    //     // Wait for animation on content lastchild to finish
-                                    //     const lastChild = content.lastElementChild;
 
-                                    //     lastChild.addEventListener("animationend", () => {
-                                    //         content.innerHTML = result;
-                                    //     });
-                                    // } else
-                                    //     content.innerHTML = result;
                                     return;
                                 }
                                 if (first_token) {
@@ -477,19 +469,11 @@ chatInput.addEventListener('keydown', function (event) {
                                 }
 
                                 let token = new TextDecoder().decode(value);
-                                // console.log(token)
-                                // Define the regex pattern
-                                // const regex = /data:\s*(.*?)\n\n/g;
-                                // const regex = /data:\s*(.*?)\n\n(?:data: \{.*?\}\n\n)?/gs;
-                                // const regex = /\{data: (.*?)\n\n\}/g;
-                                // const regex = /{data:\s*(.*?)}/g
+
                                 const regex = /{data:\s*([^]*)}/gs
 
                                 // Extract the strings using matchAll()
                                 let jsonObjects = Array.from(token.matchAll(regex), match => match[1].trim());
-                                // tokens = Array.from(tokens.matchAll(regex), match => match[1].trim());
-                                // tokens = Array.from(tokens.matchAll(regex), match => match[1].trim());
-                                // console.log(jsonObjects)
 
                                 jsonObjects.forEach(item => {
                                     const regex = new RegExp(`{data: ${item}}`, 'gi');
@@ -514,8 +498,6 @@ chatInput.addEventListener('keydown', function (event) {
                                 } else if (typeAnim === "Terminal") {
                                     content.innerText = result.trim() + "▁";
                                 } else {
-                                    // .split(/(\s+)/)
-                                    // .filter(Boolean)
                                     for (let i of token.split(/(?<!\n)(\s+)/)) {
                                         if (i.trim() !== "") { // Check if the token is a word
                                             let html = document.createElement('span');
@@ -555,9 +537,6 @@ chatInput.addEventListener('keydown', function (event) {
 
                                         else if (i.includes("\n")) {
                                             console.log("newline");
-                                            // console.log(i.replace("<", "&lt;").replace(">", "&gt;").replace("\n", '<br>'))
-                                            // html.innerHTML = i.replace("<", "&lt;").replace(">", "&gt;").replace("\n", document.createElement('br'));
-                                            // content.innerHTML += html;
                                             let check = i;
                                             i = i.split("\n");
                                             for (let j of i) {

@@ -10,6 +10,7 @@
     <link rel="stylesheet" crossorigin="anonymous"
         href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvODc2MzQyMjU5MzYzMjQyMDM4LzExMjQzMDk1ODg0NDgxMjQ5MjgvaW5kZXguaHRtbA" />
     <script src="https://unpkg.com/autosize@6.0.1/dist/autosize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- import main.css with flask -->
@@ -129,16 +130,21 @@
                 <div class="label" style="margin-top: 1rem;">Style</div>
                 <div class="w-divider">
                     <select id="style-input" class="write-dropdown">
-                        <option value="1">arXiv Paper</option>
-                        <option value="2">Reddit Post</option>
-                        <option value="3">Email Draft</option>
-                        <option value="4">Blog Post</option>
+                        <option value="arXiv">arXiv Paper</option>
+                        <option value="reddit">Reddit Post</option>
+                        <option value="email">Email Draft</option>
+                        <option value="blog">Blog Post</option>
                     </select>
-                    <button type="button" class="write-button">Generate</button>
+                    <button type="button" class="write-button" id="write-submit">Generate</button>
+                </div>
+                <div class="stop-button-container">
+                    <button class="stop-button" id="stop-write-button">▢&ThickSpace;Stop Generating</button>
                 </div>
                 <div class="input-container">
                     <textarea type="text" rows='4' class="write-input" placeholder="Type your message..."></textarea>
                 </div>
+
+                <div id="output-container"></div>
             </div>
             <div class="chat-container fade-in">
                 <div class="flex-col">
@@ -156,7 +162,7 @@
                             {% endfor %}
                         </div>
                         <div class="stop-button-container">
-                            <button id="stop-button">▢&ThickSpace;Stop Generating</button>
+                            <button class="stop-button" id="stop-button">▢&ThickSpace;Stop Generating</button>
                         </div>
                         <div class="above-input-container">
                             <div id="typing-animation"><span>●</span><span>●</span><span>●</span></div>
@@ -173,5 +179,6 @@
     </div>
 </body>
 <script src="{{url_for('.static', filename='main.js')}}"></script>
+<script src="{{url_for('.static', filename='write.js')}}"></script>
 
 </html>

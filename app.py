@@ -17,7 +17,8 @@ import json
 import sys
 import os
 import re
-from oobaAPI import AIModel
+from oobaAPI import OobaModel
+from exllamaAPI import ExLlamaModel
 import yagooglesearch
 import numpy as np
 import string
@@ -41,7 +42,7 @@ user_token = "### Instruction: \n"
 assistant_token = "### Response: \n"
 separator_token = "\n"
 
-modelAPI = 2
+modelAPI = 3
 
 sentence_model = SentenceTransformer(
     "sentence-transformers/all-MiniLM-L6-v2", cache_folder="./cache"
@@ -305,7 +306,7 @@ def chooseModel(i):
         pass
 
     if modelAPI == 0:
-        generator = AIModel(host="localhost:7860")
+        generator = OobaModel(host="localhost:7860")
 
         def generate_response_tokens(input_text):
             tokens = generator.response_stream(input_text, [user_token])
@@ -411,7 +412,18 @@ def chooseModel(i):
                     except Exception as e:
                         print(f"Exception while processing line: {e}")
                         continue
+    elif modelAPI == 3:
+        generator = ExLlamaModel(host="bright-clouds-vanish.loca.lt")
 
+        def generate_response_tokens(input_text):
+            tokens = generator.response_stream(input_text, [user_token])
+            full_text = ""
+
+            for token in tokens:
+                token = token.replace(input_text, "")
+                full_text += token
+                print(token)
+                yield " . "
 
     # else:
     #     generator = GenerateResponse("airoboros-7B-gpt4-1.4-GPTQ")
@@ -454,7 +466,7 @@ def non_streaming_response(prompt):
     return res_str
 
 
-def response_request(prompt):
+def chat_response_request(prompt):
     input_text = formatPrompt(prompt)
     # print(non_streaming_response(f"{user_token}: {formatPrompt(prompt)}\nWill this request need conversation history? Yes or no?\n{assistant_token}: The answer is:"))
     # print(chroma_collection.query(query_texts=[prompt], n_results=5))
@@ -497,6 +509,15 @@ def response_request(prompt):
     # )
     return
 
+def write_response_request(prompt):
+    res_str = ""
+    for i in model_generator.generate_response_tokens(
+        prompt
+    ):
+        res_str += i
+        yield f"{i}"
+    return
+
 
 @app.route("/")
 def index():
@@ -508,7 +529,14 @@ def stream():
     input_text = request.json["message"]
     # print(chroma_collection.peek()['documents'])
     return Response(
-        stream_with_context(response_request(input_text)), mimetype="text/event-stream"
+        stream_with_context(chat_response_request(input_text)), mimetype="text/event-stream"
+    )
+
+@app.route("/write-stream", methods=["POST"])
+def writeStream():
+    input_text = request.json["message"]
+    return Response(
+        stream_with_context(write_response_request(input_text)), mimetype="text/event-stream"
     )
 
 @app.route('/edit_settings', methods=['POST'])
