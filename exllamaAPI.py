@@ -28,37 +28,63 @@ class ExLlamaModel:
             response = self.websocket.recv()
             return json.loads(response)
         return None
-
-    def run(self, context, stopping_strings = []):
-        request = {
-            "action": "infer",
-            'text': context,
-            'max_new_tokens': 1024,
-            'stream': True,
-            'temperature': 0.75,
-            'top_p': 0.9,
-            'top_k': 40,
-            'rep_pen': 1.0,
-            'min_p': 0.02,
-            'stop_conditions': stopping_strings
-        }
-
+    
+    def run(self, context, stopping_strings=[]):
         self.connect()
-        self.send_request(request)
+        try:
+            request = {
+                "action": "infer",
+                'text': context,
+                'max_new_tokens': 1024,
+                'stream': True,
+                'temperature': 0.75,
+                'top_p': 0.9,
+                'top_k': 40,
+                'rep_pen': 1.0,
+                'min_p': 0.02,
+                'stop_conditions': stopping_strings
+            }
+            self.send_request(request)
 
-        yield context
+            # Wait for and print the response
+            response = self.receive_response()
+            if response:
+                # Here you would handle the response
+                print(response)
+                yield response
+        finally:
+            self.disconnect()
 
-        while True:
-            incoming_data = self.receive_response()
+    # def run(self, context, stopping_strings = []):
+    #     request = {
+    #         "action": "infer",
+    #         'text': context,
+    #         'max_new_tokens': 1024,
+    #         'stream': True,
+    #         'temperature': 0.75,
+    #         'top_p': 0.9,
+    #         'top_k': 40,
+    #         'rep_pen': 1.0,
+    #         'min_p': 0.02,
+    #         'stop_conditions': stopping_strings
+    #     }
 
-            if incoming_data is None:
-                break
+    #     self.connect()
+    #     self.send_request(request)
 
-            if incoming_data['event'] == 'text_stream':
-                yield incoming_data['text']
-            elif incoming_data['event'] == 'stream_end':
-                self.disconnect()
-                return
+    #     yield context
+
+    #     while True:
+    #         incoming_data = self.receive_response()
+
+    #         if incoming_data is None:
+    #             break
+
+    #         if incoming_data['event'] == 'text_stream':
+    #             yield incoming_data['text']
+    #         elif incoming_data['event'] == 'stream_end':
+    #             self.disconnect()
+    #             return
 
     def response_stream(self, prompt, stopping_strings = []):
         for response in self.run(prompt, stopping_strings):

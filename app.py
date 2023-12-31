@@ -413,7 +413,7 @@ def chooseModel(i):
                         print(f"Exception while processing line: {e}")
                         continue
     elif modelAPI == 3:
-        generator = ExLlamaModel(host="bright-clouds-vanish.loca.lt")
+        generator = ExLlamaModel(host="tough-times-beam.loca.lt:8000")
 
         def generate_response_tokens(input_text):
             tokens = generator.response_stream(input_text, [user_token])
