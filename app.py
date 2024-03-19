@@ -8,9 +8,11 @@ from flask import (
     Response,
     stream_with_context,
 )
+from httpx import head
 from requests import get, post
 
 # from generate import GenerateResponse
+from huggingface_hub import InferenceClient
 from sentence_transformers import SentenceTransformer
 import asyncio
 import json
@@ -27,6 +29,11 @@ import chromadb
 from chromadb.config import Settings
 import websocket
 
+# import env vars
+from dotenv import load_dotenv
+
+load_dotenv()
+
 client = chromadb.Client(
     Settings(
         chroma_db_impl="duckdb+parquet",
@@ -42,7 +49,7 @@ user_token = "### Instruction: \n"
 assistant_token = "### Response: \n"
 separator_token = "\n"
 
-modelAPI = 3
+modelAPI = 2
 
 sentence_model = SentenceTransformer(
     "sentence-transformers/all-MiniLM-L6-v2", cache_folder="./cache"
@@ -248,19 +255,21 @@ def formatPrompt(prompt):
     """
     current_date = time.strftime("%Y-%m-%d")
 
+#     preprompt = f"""### System: The following is a conversation between a user and an AI assistant. The assistant is helpful, creative, clever, and very friendly.
+# CURRENT DATE: {current_date}.
+# CURRENT TIME: {current_time}.
+# - Assistant only responds in English.
+# MODULES:
+# The response must contain **only** the command (it **must not** include other text, such as 'Sure, I can do that'). **The user cannot use these commands**, so you should not tell the user to use them.
+# `Search`
+#     - Syntax: `Search>search term`
+#     - Function: Searches Google. Use if the query is time based (news in 2023, for example), or you do not know the answer.
+# `Open`: 
+#     - Syntax: `Open>search term for app`
+#     - Function: Opens an app for the user.
+# {user_token}Search for latest news.{separator_token}{assistant_token}Search>latest news{separator_token}"""
     preprompt = f"""### System: The following is a conversation between a user and an AI assistant. The assistant is helpful, creative, clever, and very friendly.
-CURRENT DATE: {current_date}.
-CURRENT TIME: {current_time}.
-- Assistant only responds in English.
-MODULES:
-The response must contain **only** the command (it **must not** include other text, such as 'Sure, I can do that'). **The user cannot use these commands**, so you should not tell the user to use them.
-`Search`
-    - Syntax: `Search>search term`
-    - Function: Searches Google. Use if the query is time based (news in 2023, for example), or you do not know the answer.
-`Open`: 
-    - Syntax: `Open>search term for app`
-    - Function: Opens an app for the user.
-{user_token}Search for latest news.{separator_token}{assistant_token}Search>latest news{separator_token}"""
+"""
 #     preprompt = f"""CURRENT DATE: {current_date}.
 # BEGIN TIME: {current_time}.
 # No emojis.
@@ -332,7 +341,7 @@ def chooseModel(i):
     elif modelAPI == 2:
         def generate_response_tokens(input_text):
             _python_server = False
-            OPENAI_API_BASE_URL = "http://localhost:8000"
+            OPENAI_API_BASE_URL = "http://localhost:8080"
 
             if _python_server:
                 stream_url = f"{OPENAI_API_BASE_URL}/v1/completions"
@@ -424,6 +433,28 @@ def chooseModel(i):
                 full_text += token
                 print(token)
                 yield " . "
+    elif modelAPI == 4:
+        # We are going to implement the hf api here
+        # With streaming
+        client = InferenceClient(token=os.getenv('API_KEY'))
+        def generate_response_tokens(input_text):
+            for token in client.text_generation(
+                input_text, 
+                model="mistralai/Mixtral-8x7B-Instruct-v0.1",
+                return_full_text=False,
+                temperature=float(modelSettings["temperature"]),
+                top_k=int(modelSettings["top_k"]),
+                top_p=float(modelSettings["top_p"]),
+                repetition_penalty=float(modelSettings["repetition_penalty"]),
+                max_new_tokens=1024,
+                stop_sequences=[
+                    user_token,
+                    separator_token + user_token,
+                    # "###",
+                    "</s>",
+                ],
+                stream=True):
+                yield token
 
     # else:
     #     generator = GenerateResponse("airoboros-7B-gpt4-1.4-GPTQ")
@@ -455,9 +486,7 @@ def random_hash():
 chat_history = []
 app = Flask(__name__)
 
-def reset_chat_history():
-    global chat_history
-    chat_history = []
+
 
 def non_streaming_response(prompt):
     res_str = ""
@@ -552,6 +581,12 @@ def receive_data():
         'min_p': data['min_p']
     }
     print(modelSettings)
+    return jsonify({'status': 'success'}), 200
+
+@app.route('/clear-history')
+def clear_history():
+    global chat_history
+    chat_history = []
     return jsonify({'status': 'success'}), 200
 
 @app.route('/get-model')

@@ -57,6 +57,29 @@ strong {
     font-weight: 500;
 }
 
+.output-container ul, .output-container ol {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.output-container code {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+del,
+ins {
+  text-decoration: none;
+}
+
+del {
+  background-color: rgb(135, 44, 44);
+}
+
+ins {
+  background-color: #47762b;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -107,6 +130,28 @@ strong {
 
 .title {
     font-weight: 600;
+}
+
+.toggle {
+    display: flex;
+    width: fit-content;
+    background-color: transparent;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1.5px solid var(--bot-color);
+}
+  
+.toggle button {
+    font-family: var(--font);
+    padding: 5px 10px;
+    background-color: transparent;
+    color: var(--bot-color);
+    border: none;
+    cursor: pointer;
+}
+  
+.toggle button.active {
+    background-color: rgba(238, 251, 255, 0.208);
 }
 
 .main-container {
@@ -211,6 +256,7 @@ strong {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    overflow-y: hidden;
 }
 
 .w-divider {
@@ -225,8 +271,9 @@ strong {
 .write-input {
     z-index: 1050;
     padding: 0.7rem;
-    margin-bottom: 1.5rem;
     width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     border-radius: 1rem;
     border: 1.5px solid #f2f2f2;
     resize: none;
@@ -272,23 +319,34 @@ strong {
     background-color: #282d337c;
 }
 
-#output-container {
+.output-container {
     width: 100%;
     height: 100%;
-    padding: 0 1.4rem;
-    padding-top: 0;
+    padding: 0rem 1.4rem;
+    padding-top: 0.5rem;
     color: var(--bot-color);
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
-#output-container h2 {
+.output-container h2 {
     margin-bottom: 1rem;
 }
 
-#output-container p {
+.output-container p {
     margin-bottom: 0.5rem;
+}
+
+.feedback-container {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    color: var(--bot-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .chat-container {
@@ -307,9 +365,10 @@ strong {
     z-index: 1000;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
+    gap: 0.5rem;
 }
 
 .chat-input {
@@ -369,7 +428,8 @@ strong {
     width: auto;
     flex-grow: 1;
     overflow-x: hidden;
-    height: fit-content;
+    /* height: fit-content; */
+    height: 87vh;
     display: flex;
 }
 

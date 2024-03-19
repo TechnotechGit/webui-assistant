@@ -1,8 +1,5 @@
 // Define prompts
 
-const userToken = "### Instruction:"
-const assistantToken = "### Response:"
-
 function basePrompt(inputPrompt) {
     return `### System: ${inputPrompt}`;
 }
@@ -18,7 +15,16 @@ Please write a one to three paragraph long abstract about the following:
 ${assistantToken}
 Sure, here is the abstract, with the title first:
 ## Title:`,
-    "reddit": `You are an AI that generates in the style of a Reddit post. Place a title at the top of the post, and the abstract below it.
+    "reddit": `You are an human writing a Reddit post.
+Place a title at the top of the post, and the post itself below it.
+The post should be informal, and does not need to follow formal text conventions.
+Try keep emojis to a minimum, and judge how formal you should be in the post using the title.
+Provide the topic of the post, then the subreddit, then the post:
+Format:
+### Title: {title}
+### Subreddit: {subreddit}
+{post}
+
 ${userToken}
 The topic of the post is: "{input}"
 
@@ -52,7 +58,7 @@ stopWriteButton.addEventListener('click', () => {
     typingAnimation.style.display = 'none';
 });
 
-const writeInput = document.querySelector('.write-input');
+const writeInput = document.querySelector('#write-input');
 const writeDropdown = document.querySelector('.write-dropdown');
 
 // writeInput.addEventListener('keydown', function (event) {
@@ -154,7 +160,7 @@ const writeGenerate = () => {
             let lastToken = "";
             let content;
 
-            let result = "##"
+            let result = "## ";
             let html = "";
 
             let responseStream = new ReadableStream({

@@ -2,8 +2,13 @@ const chatContainer = document.querySelector('.chat-container');
 const chatButton = document.querySelector('#chat-button');
 const writeContainer = document.querySelector('.write-container');
 const writeButton = document.querySelector('#write-button');
+const feedbackContainer = document.querySelector('.feedback-container');
+const feedbackButton = document.querySelector('#feedback-button');
 const settingsContainer = document.querySelector('.settings-container');
 const settingsButton = document.querySelector('#settings-button');
+
+const userToken = "### Instruction:"
+const assistantToken = "### Response:"
 
 const titleBar = document.querySelector('.title-bar');
 
@@ -11,7 +16,12 @@ const tabHandler = class {
     constructor() {
         this.tab = null;
         // element, display, button, title-bar y/n
-        this.tab_elems = { "chat": [chatContainer, "flex", chatButton, true], "write": [writeContainer, "block", writeButton, true], "settings": [settingsContainer, "block", settingsButton, false] };
+        this.tab_elems = {
+            "chat": [chatContainer, "flex", chatButton, true],
+            "write": [writeContainer, "block", writeButton, true],
+            "feedback": [feedbackContainer, "block", feedbackButton, false],
+            "settings": [settingsContainer, "block", settingsButton, false]
+        };
     }
 
     set(value) {
@@ -298,6 +308,12 @@ writeButton.addEventListener('click', () => {
     updateTitle()
 })
 
+feedbackButton.addEventListener('click', () => {
+    tab.set('feedback');
+    sendDataToFlask(window.settings.get(), '/edit_settings');
+    updateTitle()
+})
+
 settingsButton.addEventListener('click', () => {
     tab.set('settings');
     sendDataToFlask(window.settings.get(), '/edit_settings');
@@ -322,6 +338,95 @@ function getModelName() {
 }
 
 getModelName()
+
+function clearChatDiv() {
+    chatMessages.innerHTML = "";
+}
+
+function clearChatHistory() {
+    fetch('/clear-history')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            clearChatDiv();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+document.getElementById('clear-button').addEventListener('click', clearChatHistory);
+
+import fastDiff from 'https://cdn.jsdelivr.net/npm/fast-diff@1.3.0/+esm'
+import { markedHighlight } from 'https://cdn.jsdelivr.net/npm/marked-highlight@2.1.1/+esm';
+
+console.log(marked, markedHighlight)
+
+function formatMarkdown(text) {
+    // Split the text into an array of lines
+    const lines = text.split('\n');
+
+    // Initialize an empty array to store the processed lines
+    const processedLines = [];
+
+    // Flag to track if we are inside a code block
+    let inCodeBlock = false;
+
+    // Iterate over each line
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // Check if the line starts a code block
+        if (line.startsWith('```')) {
+            inCodeBlock = !inCodeBlock;
+            processedLines.push(line);
+        } else if (inCodeBlock) {
+            // If inside a code block, add the line as is
+            processedLines.push(line);
+        } else {
+            // If outside a code block, add a new line if the current line is not empty
+            if (line.trim() !== '') {
+                processedLines.push(line);
+                processedLines.push('');
+            }
+        }
+    }
+
+    // Join the processed lines back into a single string
+    const preformattedText = processedLines.join('\n');
+
+    return preformattedText;
+}
+
+function decodeHTMLEntities(text) {
+    // Regular expression to match HTML entities
+    const entityRegex = /&(amp|lt|gt|quot|#39);/g;
+
+    // Define a mapping for HTML entities to their corresponding characters
+    const entityMap = {
+        amp: '&',
+        lt: '<',
+        gt: '>',
+        quot: '"',
+        '#39': "'"
+        // Add more entities as needed
+    };
+
+    // Replace HTML entities with their corresponding characters
+    return text.replace(entityRegex, (match, entity) => {
+        // Check if the entity is present in the map
+        if (entityMap.hasOwnProperty(entity)) {
+            return entityMap[entity];
+        } else {
+            // If the entity is not in the map, return the original match
+            return match;
+        }
+    });
+}
+
+hljs.configure({
+    ignoreUnescapedHTML: true
+})
 
 const emoji = new EmojiConvertor();
 emoji.replace_mode = 'unified';
@@ -616,7 +721,7 @@ chatInput.addEventListener('keydown', function (event) {
                 if (controller.aborted) {
                     // Handle the abort event
                     window.streaming = false;
-                    content.innerHTML = result;
+                    content.innerHTML = result.replace(userToken, "");
                     console.log(content);
                 } else {
                     console.error('Error:', error);

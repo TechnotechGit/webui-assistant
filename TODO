@@ -1,9 +1,13 @@
 # TODO
-- Add clear conversation button
-- Add permanent chat history
-- Add chat history embeddings
-- Add rest of commands
-- Finish the rest of the settings menu
+
+-   Add clear conversation button
+-   Add permanent chat history
+-   Add chat history embeddings
+-   Add rest of commands
+-   Finish the rest of the settings menu
+
+-   Add feedback tool with diff viewer
 
 # DONE
-- Add Google Search
+
+-   Add Google Search
